@@ -1,0 +1,1162 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Structured data for SEO on this page
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Сайт на коде: Быстрые и продающие лендинги от Ульяны Кирпичниковой",
+  "description": "Разработка быстрых сайтов на чистом коде (Astro) без ограничений конструкторов. Конверсия, скорость 100/100, честное сравнение с Tilda, WordPress, Taptop.",
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "Ульяна Кирпичникова",
+    "url": "https://ulyanaweb.ru"
+  }
+};
+---
+
+<Layout 
+  title="Сайт на коде | Быстрые лендинги от 3 дней без конструкторов"
+  description="Разработка посадочных страниц на чистом коде с помощью Astro. Скорость загрузки 100/100, продающая структура, честное сравнение с Tilda, WordPress и Taptop. Никакой абонентской платы."
+  schema={schema}
+>
+  <Header />
+
+  <main class="code-page">
+    {/* Hero Section */}
+    <section class="hero-section section-padding">
+      <div class="container hero-container-centered">
+        <div class="hero-content-centered">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>Лендинги от 3-х дней</span>
+          </div>
+          <h1 class="hero-title text-center">
+            Сайты на коде: <br />
+            чистый дизайн и скорость
+          </h1>
+          <p class="hero-subtitle text-center">
+            Продуманная структура и продающие тексты под вашу целевую аудиторию и задачи бизнеса. Забудьте про ограничения Tilda или медленную загрузку WordPress — ваш сайт будет работать быстрее 99% конкурентов.
+          </p>
+          <div class="hero-actions text-center">
+            <a href="https://t.me/UlyanaKir" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Обсудить задачу в Telegram
+            </a>
+            <a href="#comparison" class="btn btn-secondary">
+              Сравнить платформы
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-code-visual-widescreen">
+          <div class="glass-card code-card-preview">
+            <div class="card-header-bar">
+              <div class="dashboard-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              
+              {/* File Tabs */}
+              <div class="code-tabs">
+                <button class="code-tab active" data-file="index">index.astro</button>
+                <button class="code-tab" data-file="layout">Layout.astro</button>
+                <button class="code-tab" data-file="css">global.css</button>
+              </div>
+              <span class="file-name-info font-heading">Astro IDE</span>
+            </div>
+
+            {/* Code Contents */}
+            <div class="code-file-content active" id="file-index">
+              <pre class="code-editor"><code><span class="code-keyword">import</span> Layout <span class="code-keyword">from</span> <span class="code-string">'../layouts/Layout.astro'</span>;
+<span class="code-keyword">import</span> Header <span class="code-keyword">from</span> <span class="code-string">'../components/Header.astro'</span>;
+
+&lt;<span class="code-tag">Layout</span> <span class="code-attr">title</span>=<span class="code-string">"Сайт на коде"</span>&gt;
+  &lt;<span class="code-tag">Header</span> /&gt;
+  &lt;<span class="code-tag">main</span>&gt;
+    &lt;<span class="code-tag">h1</span>&gt;Сайт летает на 100%&lt;/<span class="code-tag">h1</span>&gt;
+    &lt;<span class="code-tag">p</span>&gt;Сборка без лишнего мусорного JS-кода!&lt;/<span class="code-tag">p</span>&gt;
+  &lt;/<span class="code-tag">main</span>&gt;
+&lt;/<span class="code-tag">Layout</span>&gt;
+
+<span class="code-comment">// Google PageSpeed: 100/100 🔥</span></code></pre>
+            </div>
+
+            <div class="code-file-content" id="file-layout">
+              <pre class="code-editor"><code>---
+<span class="code-keyword">interface</span> Props &#123;
+  title: <span class="code-keyword">string</span>;
+&#125;
+<span class="code-keyword">const</span> &#123; title &#125; = Astro.props;
+---
+&lt;!<span class="code-tag">DOCTYPE</span> <span class="code-attr">html</span>&gt;
+&lt;<span class="code-tag">html</span> <span class="code-attr">lang</span>=<span class="code-string">"ru"</span>&gt;
+  &lt;<span class="code-tag">head</span>&gt;
+    &lt;<span class="code-tag">title</span>&gt;<span class="code-keyword">&#123;</span>title<span class="code-keyword">&#125;</span>&lt;/<span class="code-tag">title</span>&gt;
+    &lt;<span class="code-tag">meta</span> <span class="code-attr">charset</span>=<span class="code-string">"utf-8"</span> /&gt;
+  &lt;/<span class="code-tag">head</span>&gt;
+  &lt;<span class="code-tag">body</span>&gt;
+    &lt;<span class="code-tag">slot</span> /&gt;
+  &lt;/<span class="code-tag">body</span>&gt;
+&lt;/<span class="code-tag">html</span>&gt;</code></pre>
+            </div>
+
+            <div class="code-file-content" id="file-css">
+              <pre class="code-editor"><code><span class="code-keyword">:root</span> &#123;
+  <span class="code-attr">--color-bg</span>: <span class="code-string">#ffffff</span>;
+  <span class="code-attr">--color-text</span>: <span class="code-string">#000000</span>;
+  <span class="code-attr">--color-accent</span>: <span class="code-string">#0473D4</span>;
+&#125;
+
+<span class="code-tag">body</span> &#123;
+  <span class="code-attr">background-color</span>: <span class="code-keyword">var</span>(<span class="code-attr">--color-bg</span>);
+  <span class="code-attr">font-family</span>: <span class="code-string">'Inter'</span>, sans-serif;
+  <span class="code-attr">margin</span>: <span class="code-string">0</span>;
+&#125;
+
+<span class="code-tag">h1</span> &#123;
+  <span class="code-attr">font-weight</span>: <span class="code-string">500</span>;
+  <span class="code-attr">text-transform</span>: <span class="code-string">uppercase</span>;
+&#125;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Speed Benchmark Block */}
+    <section class="speed-section section-padding" id="speed-test">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="pre-title">Производительность</span>
+          <h2 class="section-title">Скорость загрузки решает всё</h2>
+          <p class="section-intro" style="margin-inline: auto;">
+            Каждая секунда ожидания сайта стоит вам клиентов. Конструкторы загружают мегабайты лишних скриптов, тогда как чистый код весит в 50 раз меньше и открывается мгновенно.
+          </p>
+        </div>
+
+        <div class="glass-card speed-card grid-2">
+          <div class="speed-info">
+            <h3>Почувствуйте разницу в секундах</h3>
+            <p>
+              Медленные сайты теряют до 50% мобильного трафика. Поисковые системы Яндекс и Google напрямую понижают в выдаче сайты, которые грузятся дольше 2.5 секунд (метрика LCP). 
+            </p>
+            <p>
+              Сайт на коде (Astro) загружает только чистый HTML и CSS. Никаких «тяжелых» библиотек, раздутого DOM-дерева и блокирующих рендеринг скриптов.
+            </p>
+            
+            <button id="start-benchmark" class="btn btn-primary" style="margin-block-start: 1rem;">
+              Запустить тест скорости
+            </button>
+          </div>
+
+          <div class="benchmark-container">
+            {/* Astro Metric */}
+            <div class="benchmark-row" id="bench-astro">
+              <div class="row-meta">
+                <span class="platform-name font-heading">Сайт на коде (Astro)</span>
+                <span class="metric-score" id="astro-score">0 / 100</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-bar astro-bar" id="astro-bar"></div>
+              </div>
+              <div class="row-stats">
+                <span>Размер: <strong id="astro-size">0 KB</strong></span>
+                <span>Время загрузки: <strong id="astro-time">0.0s</strong></span>
+              </div>
+            </div>
+
+            {/* Builder Metric */}
+            <div class="benchmark-row" id="bench-builders">
+              <div class="row-meta">
+                <span class="platform-name font-heading">Конструкторы (Tilda / WP)</span>
+                <span class="metric-score" id="builder-score">0 / 100</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-bar builder-bar" id="builder-bar"></div>
+              </div>
+              <div class="row-stats">
+                <span>Размер: <strong id="builder-size">0 MB</strong></span>
+                <span>Время загрузки: <strong id="builder-time">0.0s</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Comparison Block */}
+    <section class="comparison-section section-padding" id="comparison">
+      <div class="container">
+        <div class="section-header">
+          <span class="pre-title">Честное сравнение</span>
+          <h2 class="section-title">Код против конструкторов: честные за и нет</h2>
+          <p class="section-intro">
+            Мы не ругаем конструкторы просто так — у них есть свои задачи. Но когда дело касается масштабируемости, уникального маркетинга и идеального SEO, код безоговорочно побеждает.
+          </p>
+        </div>
+
+        <div class="grid-2 comparison-grid">
+          {/* Tilda Card */}
+          <div class="glass-card platform-card">
+            <h3 class="platform-title">Tilda Publishing</h3>
+            <p class="platform-intro">Хороший инструмент для быстрого старта и простых тестов силами маркетолога.</p>
+            
+            <div class="pros-cons">
+              <div class="pros-list">
+                <span class="block-title green-text">Плюсы:</span>
+                <ul>
+                  <li>Удобный редактор Zero Block для базового дизайна</li>
+                  <li>Множество готовых интеграций с российскими CRM</li>
+                  <li>Легко вносить правки без знания программирования</li>
+                </ul>
+              </div>
+              
+              <div class="cons-list">
+                <span class="block-title red-text">Минусы:</span>
+                <ul>
+                  <li>Ежегодная абонентская плата (от 6 000 ₽ / год за сайт)</li>
+                  <li>Огромный вес кода из-за лишних JS-скриптов платформы</li>
+                  <li>Жесткие рамки: до 500 страниц, лимиты на базу данных</li>
+                  <li>Зависимость от серверов платформы (нельзя забрать код себе)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* WordPress Card */}
+          <div class="glass-card platform-card">
+            <h3 class="platform-title">WordPress</h3>
+            <p class="platform-intro">Классическая CMS с огромной историей и самой большой базой плагинов в мире.</p>
+            
+            <div class="pros-cons">
+              <div class="pros-list">
+                <span class="block-title green-text">Плюсы:</span>
+                <ul>
+                  <li>Огромная база готовых шаблонов и плагинов</li>
+                  <li>Подходит для блогов и контентных медиа проектов</li>
+                  <li>Много дешевых специалистов на рынке</li>
+                </ul>
+              </div>
+              
+              <div class="cons-list">
+                <span class="block-title red-text">Минусы:</span>
+                <ul>
+                  <li>Постоянные уязвимости и угроза взлома базы данных</li>
+                  <li>Медленная скорость загрузки без сложной серверной оптимизации</li>
+                  <li>Постоянные конфликты плагинов при обновлениях (ломают верстку)</li>
+                  <li>Административная панель перегружена лишним функционалом</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Taptop Card */}
+          <div class="glass-card platform-card">
+            <h3 class="platform-title">Taptop (Новый игрок)</h3>
+            <p class="platform-intro">Молодой отечественный конструктор сайтов, позиционирующий себя как замена Webflow.</p>
+            
+            <div class="pros-cons">
+              <div class="pros-list">
+                <span class="block-title green-text">Плюсы:</span>
+                <ul>
+                  <li>Современный и гибкий редактор с CSS-логикой</li>
+                  <li>Более чистый код по сравнению с Tilda на простых макетах</li>
+                  <li>Быстрый рендеринг в редакторе</li>
+                </ul>
+              </div>
+              
+              <div class="cons-list">
+                <span class="block-title red-text">Минусы:</span>
+                <ul>
+                  <li>Слишком молодая платформа с частыми багами</li>
+                  <li>Мало готовых интеграций с внешними сервисами</li>
+                  <li>Привязка к экосистеме и инфраструктуре стартапа</li>
+                  <li>Не хватает опытных специалистов, умеющих работать с платформой</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Astro (Coded) Card */}
+          <div class="glass-card platform-card popular">
+            <div class="popular-badge">Рекомендуем для бизнеса</div>
+            <h3 class="platform-title">Astro (Сайт на коде)</h3>
+            <p class="platform-intro">Современный фреймворк для сборки сверхбыстрых статических сайтов.</p>
+            
+            <div class="pros-cons">
+              <div class="pros-list">
+                <span class="block-title green-text">Плюсы:</span>
+                <ul>
+                  <li><strong>0 рублей</strong> абонентской платы за саму платформу</li>
+                  <li>Скорость 100/100 по Google PageSpeed из коробки</li>
+                  <li>Идеальный чистый код под SEO без мусора</li>
+                  <li>Полная независимость: сайт принадлежит вам, хостинг стоит копейки</li>
+                  <li>Абсолютная свобода дизайна и сложной микро-анимации</li>
+                </ul>
+              </div>
+              
+              <div class="cons-list">
+                <span class="block-title red-text">Особенности:</span>
+                <ul>
+                  <li>Для изменений в структуре нужен разработчик</li>
+                  <li>Разработка занимает больше времени, чем сборка на конструкторах</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Content & Strategy Block */}
+    <section class="strategy-section section-padding">
+      <div class="container grid-2" style="align-items: center;">
+        <div class="strategy-content">
+          <span class="pre-title">Сначала смыслы</span>
+          <h2 class="section-title">Продуманная структура <span class="text-accent-gradient">под ваши задачи</span></h2>
+          <p>
+            Сайт продает не красивым фоном, а правильным донесением ценности продукта. Конструкторы часто заставляют вас урезать свои мысли и выгоды, чтобы они «поместились в шаблон». 
+          </p>
+          <p>
+            В работе со мной процесс строится от обратного:
+          </p>
+          <ul class="strategy-steps">
+            <li>
+              <span class="step-num">1</span>
+              <div>
+                <strong>Анализ аудитории и офферов:</strong> Находим триггеры, которые заставят вашего клиента оставить заявку.
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div>
+                <strong>Написание продающего текста:</strong> Никакой «воды» и общих фраз, пишем четко, лаконично и на языке выгод.
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div>
+                <strong>Индивидуальный дизайн и код:</strong> Создаем макет специально под готовый текст, верстаем на Astro для максимальной скорости.
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="strategy-badge-visual">
+          <div class="glass-card strategy-card">
+            <h4>Принцип разработки</h4>
+            <div class="principle-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <h5>Смыслы первичны</h5>
+                <p>Текст пишется под бизнес-цель, а не под размер карточки в конструкторе.</p>
+              </div>
+            </div>
+            <div class="principle-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <h5>Конверсия важна</h5>
+                <p>Каждый блок ведет пользователя к одному целевому действию.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* SEO Block */}
+    <section class="seo-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="pre-title">SEO Оптимизация</span>
+          <h2 class="section-title">Быстрый старт в поиске <span class="text-accent-gradient">через Astro</span></h2>
+          <p class="section-intro" style="margin-inline: auto;">
+            Конструкторы генерируют тонны лишнего кода, который мешает поисковым роботам индексировать страницу. Astro решает эту проблему на корню.
+          </p>
+        </div>
+
+        <div class="grid-3 seo-grid">
+          <div class="glass-card seo-card-item">
+            <div class="seo-icon">⚡</div>
+            <h4>Мгновенный рендеринг (SSG)</h4>
+            <p>Astro собирает готовые HTML-страницы на этапе сборки. Поисковые боты Яндекса и Google мгновенно считывают весь контент страницы без задержек.</p>
+          </div>
+
+          <div class="glass-card seo-card-item">
+            <div class="seo-icon">🎯</div>
+            <h4>Чистая семантика</h4>
+            <p>Код пишется вручную с использованием правильных HTML5 тегов (header, main, section, article). Поисковики лучше ранжируют структурированные сайты.</p>
+          </div>
+
+          <div class="glass-card seo-card-item">
+            <div class="seo-icon">🏷️</div>
+            <h4>Авто-генерация мета-тегов и Schema</h4>
+            <p>Каждая страница включает гибкую генерацию Open Graph, канонических URL и микроразметки JSON-LD для красивого сниппета в результатах поиска.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Portfolio Placeholder */}
+    <section class="portfolio-section section-padding">
+      <div class="container">
+        <div class="glass-card portfolio-update-card text-center">
+          <span class="portfolio-tag">Портфолио в разработке</span>
+          <h2>Примеры проектов <span class="text-accent-gradient">в процессе сборки</span></h2>
+          <p style="max-inline-size: 600px; margin-inline: auto; margin-block-end: 2rem;">
+            Мы как раз переносим наши кейсы на новый быстрый движок Astro, чтобы показать вам всю силу чистого кода на реальных цифрах. Если вы хотите посмотреть примеры готовых сайтов прямо сейчас — напишите мне в личные сообщения.
+          </p>
+          <a href="https://t.me/UlyanaKir" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Запросить примеры сайтов в Telegram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* Lead Capture Form Section */}
+    <section class="contact-section section-padding">
+      <div class="container">
+        <div class="glass-card contact-card grid-2">
+          <div class="contact-info">
+            <span class="text-accent-gradient font-heading" style="font-weight: 500; text-transform: uppercase; letter-spacing: 1px; font-size: 1rem;">Заказать сайт</span>
+            <h2 class="section-title" style="margin-block-start: 0.5rem; color: var(--color-text-primary);">Начнем обсуждение вашего проекта?</h2>
+            <p>
+              Заполните короткую форму — я проанализирую вашу задачу, предложу структуру продающего сайта на коде и рассчитаю точные сроки разработки.
+            </p>
+          </div>
+          <div class="contact-form-container">
+            <form class="audit-form" id="codeOrderForm">
+              <div class="form-group">
+                <label for="project-type" class="form-label">Какой сайт вам нужен?</label>
+                <select id="project-type" name="projectType" class="form-input" required style="appearance: none; background: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23000%22 d=%22M10.3 3.3L6 7.6 1.7 3.3 0.3 4.7l5.7 5.7 5.7-5.7z%22/%3E%3C/svg%3E') no-repeat right 1.1rem center; background-size: 10px;">
+                  <option value="" disabled selected>Выберите тип сайта</option>
+                  <option value="landing">Продающий лендинг (от 3-х дней)</option>
+                  <option value="multi">Многостраничный сайт для бизнеса</option>
+                  <option value="redesign">Перенос сайта с конструктора на код</option>
+                  <option value="other">Другая сложная задача</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="current-site" class="form-label">Текущий сайт (если есть)</label>
+                <input 
+                  type="text"
+                  inputmode="url" 
+                  id="current-site" 
+                  name="currentSite" 
+                  class="form-input" 
+                  placeholder="https://mybusiness.ru" 
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-tg" class="form-label">Ваши контакты (Telegram / WhatsApp / Телефон)</label>
+                <input 
+                  type="text" 
+                  id="contact-tg" 
+                  name="contact" 
+                  class="form-input" 
+                  placeholder="@mytelegram или +7..." 
+                  required 
+                />
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Обсудить сайт на коде
+              </button>
+              <div id="formStatusMsg" class="form-status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .code-page {
+    padding-block-start: 80px; /* Offset for fixed header */
+  }
+
+  /* Hero Section styling */
+  .hero-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-container-centered {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-content-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-inline-size: 1100px;
+    width: 100%;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .hero-subtitle.text-center {
+    margin-inline: auto;
+    max-inline-size: 750px;
+  }
+
+  .hero-actions.text-center {
+    justify-content: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-default);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-accent-text);
+    border-radius: 50%;
+    animation: blink 2s infinite;
+  }
+
+  .hero-title {
+    font-size: var(--fs-h1);
+    letter-spacing: -1.5px;
+    color: var(--color-text-primary);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* Code visual box styling */
+  .hero-code-visual-widescreen {
+    width: 100%;
+  }
+
+  .code-card-preview {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    background: #1a1a1a;
+    color: #c9d1d9;
+    border: 1px solid var(--color-border);
+    padding: 0;
+    width: 100%;
+    box-shadow: none !important;
+  }
+
+  .card-header-bar {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    padding: 0.5rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+    gap: 1.5rem;
+  }
+
+  .dashboard-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .dashboard-dots span[class^="dot-"] {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .dot-red { background-color: #f85149; }
+  .dot-yellow { background-color: #d29922; }
+  .dot-green { background-color: #3fb950; }
+
+  .code-tabs {
+    display: flex;
+    gap: 2px;
+    margin-left: 1rem;
+  }
+
+  .code-tab {
+    background: transparent;
+    border: none;
+    color: #8b949e;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    font-family: var(--font-heading);
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  .code-tab:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .code-tab.active {
+    color: #ffffff;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid var(--color-accent-text);
+  }
+
+  .code-file-content {
+    display: none;
+  }
+
+  .code-file-content.active {
+    display: block;
+  }
+
+  .file-name-info {
+    font-size: 0.8rem;
+    color: #8b949e;
+    margin-left: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: var(--font-body);
+  }
+
+  .code-editor {
+    padding: 1.5rem;
+    margin: 0;
+    overflow-x: auto;
+    line-height: 1.5;
+  }
+
+  .code-keyword { color: #ff7b72; }
+  .code-string { color: #a5d6ff; }
+  .code-tag { color: #7ee787; }
+  .code-attr { color: #d29922; }
+  .code-comment { color: #8b949e; font-style: italic; }
+
+  /* Benchmark block styling */
+  .pre-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    letter-spacing: 1.5px;
+    margin-block-end: 0.5rem;
+    display: block;
+  }
+
+  .speed-card {
+    background: transparent;
+    border-color: var(--color-border);
+    box-shadow: none !important;
+  }
+
+  .speed-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .speed-info h3 {
+    font-size: var(--fs-h3);
+  }
+
+  .benchmark-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    border-left: 1px solid var(--color-border);
+    padding-left: 0;
+
+    @media (min-width: 768px) {
+      padding-left: 2.5rem;
+    }
+  }
+
+  .benchmark-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .row-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .platform-name {
+    font-weight: 500;
+    font-size: 1.05rem;
+  }
+
+  .metric-score {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+
+  .progress-track {
+    height: 14px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    width: 100%;
+    position: relative;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s ease-out, background-color 0.3s;
+  }
+
+  .astro-bar {
+    background-color: var(--color-accent);
+  }
+
+  .builder-bar {
+    background-color: #ff5e5e;
+  }
+
+  .row-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Comparison Cards styling */
+  .comparison-grid {
+    margin-block-start: 3.5rem;
+    gap: 2rem;
+  }
+
+  .platform-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    height: 100%;
+  }
+
+  .platform-card.popular {
+    border-color: var(--color-accent-text);
+    background: transparent;
+    box-shadow: none !important;
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: var(--color-accent);
+    color: #1a1a1a;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius-default);
+  }
+
+  .platform-title {
+    font-size: var(--fs-h3);
+    color: var(--color-text-primary);
+  }
+
+  .platform-intro {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+  }
+
+  .pros-cons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    padding-block-start: 1.25rem;
+  }
+
+  .block-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-block-end: 0.5rem;
+  }
+
+  .green-text {
+    color: var(--color-accent-text);
+  }
+
+  .red-text {
+    color: var(--color-border);
+  }
+
+  .pros-list ul, .cons-list ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.937rem;
+    color: var(--color-text-secondary);
+  }
+
+  .pros-list ul li::before {
+    content: "•";
+    color: var(--color-accent-text);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
+  .cons-list ul li::before {
+    content: "•";
+    color: var(--color-border);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
+  /* Strategy Block list */
+  .strategy-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-block-start: 2rem;
+  }
+
+  .strategy-steps li {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    background: var(--color-accent);
+    color: var(--color-text-primary);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+
+  .strategy-badge-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .strategy-card {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-color: var(--color-border);
+  }
+
+  .principle-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .check-icon {
+    color: #1a1a1a;
+    font-weight: bold;
+    background: var(--color-accent);
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+  }
+
+  .principle-item h5 {
+    font-size: 1.05rem;
+    margin-block-end: 0.25rem;
+    text-transform: none;
+  }
+
+  .principle-item p {
+    font-size: 0.9rem;
+  }
+
+  /* SEO block items */
+  .seo-grid {
+    margin-block-start: 3rem;
+  }
+
+  .seo-card-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .seo-icon {
+    font-size: 2rem;
+  }
+
+  .seo-card-item h4 {
+    font-size: 1.25rem;
+  }
+
+  .seo-card-item p {
+    font-size: 0.95rem;
+  }
+
+  /* Portfolio placeholder */
+  .portfolio-update-card {
+    background: transparent;
+    border-style: dashed;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 4rem;
+    box-shadow: none !important;
+  }
+
+  .portfolio-tag {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    background: var(--color-text-primary);
+    color: var(--color-bg);
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* Lead Capture Form */
+  .contact-card {
+    background: transparent;
+    border-color: var(--color-border);
+    box-shadow: none !important;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-form-container {
+    width: 100%;
+  }
+
+  /* Animations */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+</style>
+
+<script>
+  import { GOOGLE_SCRIPT_URL } from '../config';
+
+  // Dynamic Benchmark script logic
+  const initBenchmark = () => {
+    const startBtn = document.getElementById('start-benchmark');
+    if (!startBtn) return;
+
+    // elements
+    const astroBar = document.getElementById('astro-bar');
+    const astroScore = document.getElementById('astro-score');
+    const astroSize = document.getElementById('astro-size');
+    const astroTime = document.getElementById('astro-time');
+
+    const builderBar = document.getElementById('builder-bar');
+    const builderScore = document.getElementById('builder-score');
+    const builderSize = document.getElementById('builder-size');
+    const builderTime = document.getElementById('builder-time');
+
+    let isRunning = false;
+
+    startBtn.addEventListener('click', () => {
+      if (isRunning) return;
+      isRunning = true;
+      startBtn.textContent = 'Тестирование...';
+      startBtn.setAttribute('disabled', 'true');
+
+      // Reset
+      if (astroBar && builderBar && astroScore && builderScore && astroSize && builderSize && astroTime && builderTime) {
+        astroBar.style.width = '0%';
+        builderBar.style.width = '0%';
+        astroScore.textContent = '0 / 100';
+        builderScore.textContent = '0 / 100';
+        astroSize.textContent = '0 KB';
+        builderSize.textContent = '0.0 MB';
+        astroTime.textContent = '0.0s';
+        builderTime.textContent = '0.0s';
+
+        // Animate Astro (fast, green, high performance)
+        let astroVal = 0;
+        const astroInterval = setInterval(() => {
+          astroVal += 2;
+          if (astroVal >= 100) {
+            astroVal = 100;
+            clearInterval(astroInterval);
+          }
+          astroBar.style.width = `${astroVal}%`;
+          astroScore.textContent = `${astroVal} / 100`;
+          
+          if (astroVal >= 90) {
+            astroBar.style.backgroundColor = '#22c55e'; // Green
+            astroScore.style.color = '#2b7a0b';
+          } else {
+            astroBar.style.backgroundColor = 'var(--color-text-primary)';
+          }
+
+          // Sizes and loading time updates
+          astroSize.textContent = `${Math.round(astroVal * 0.45)} KB`;
+          astroTime.textContent = `${(astroVal * 0.002).toFixed(2)}s`;
+        }, 15);
+
+        // Animate Builder (slower, red/yellow, low performance)
+        let builderVal = 0;
+        const builderInterval = setInterval(() => {
+          builderVal += 1;
+          if (builderVal >= 42) {
+            builderVal = 42;
+            clearInterval(builderInterval);
+            isRunning = false;
+            startBtn.textContent = 'Запустить тест заново';
+            startBtn.removeAttribute('disabled');
+          }
+          builderBar.style.width = `${builderVal}%`;
+          builderScore.textContent = `${builderVal} / 100`;
+
+          if (builderVal < 50) {
+            builderBar.style.backgroundColor = '#f85149'; // Red
+            builderScore.style.color = '#f85149';
+          } else {
+            builderBar.style.backgroundColor = '#d29922'; // Yellow
+            builderScore.style.color = '#d29922';
+          }
+
+          builderSize.textContent = `${(builderVal * 0.08).toFixed(1)} MB`;
+          builderTime.textContent = `${(builderVal * 0.08).toFixed(1)}s`;
+        }, 30);
+      }
+    });
+  };
+
+  // Form submit handler
+  const initForm = () => {
+    const form = document.getElementById('codeOrderForm') as HTMLFormElement;
+    const statusMsg = document.getElementById('formStatusMsg');
+
+    if (form && statusMsg) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusMsg.textContent = 'Отправка...';
+        statusMsg.className = 'form-status';
+        statusMsg.style.color = 'var(--color-text-primary)';
+
+        if (!GOOGLE_SCRIPT_URL) {
+          // Имитация отправки при пустом URL
+          setTimeout(() => {
+            statusMsg.textContent = 'Спасибо! Ваша заявка принята (Имитация). Настройте GOOGLE_SCRIPT_URL в src/config.ts.';
+            statusMsg.className = 'form-status success';
+            statusMsg.style.color = '#2b7a0b';
+            form.reset();
+          }, 1200);
+          return;
+        }
+
+        try {
+          const params = new URLSearchParams();
+          const formData = new FormData(form);
+          for (const [key, value] of formData.entries()) {
+            params.append(key, value);
+          }
+          params.append('source', 'Заказ сайта (Сайт на коде)');
+
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: params.toString()
+          });
+
+          statusMsg.textContent = 'Спасибо! Ваша заявка принята. Я свяжусь с вами в Telegram/WhatsApp в ближайшее время.';
+          statusMsg.className = 'form-status success';
+          statusMsg.style.color = '#2b7a0b';
+          form.reset();
+        } catch (err) {
+          console.error(err);
+          statusMsg.textContent = 'Ошибка отправки. Пожалуйста, напишите мне напрямую в Telegram.';
+          statusMsg.className = 'form-status error';
+          statusMsg.style.color = '#f85149';
+        }
+      });
+    }
+  };
+
+  // Interactive Code Tabs handler
+  const initCodeTabs = () => {
+    const tabs = document.querySelectorAll('.code-tab');
+    const contents = document.querySelectorAll('.code-file-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const file = tab.getAttribute('data-file');
+        
+        // Deactivate all
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        // Activate selected
+        tab.classList.add('active');
+        const targetContent = document.getElementById(`file-${file}`);
+        if (targetContent) targetContent.classList.add('active');
+      });
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initBenchmark();
+    initForm();
+    initCodeTabs();
+  });
+</script>

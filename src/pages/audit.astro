@@ -1,0 +1,1372 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const auditSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Аудит конверсии посадочной страницы",
+  "image": "https://ulyanaweb.ru/og-image.png",
+  "description": "Профессиональный аудит конверсии вашего лендинга за 48 часов. Поиск утечек заявок, рерайт главного экрана и ТОП-10 приоритетных правок.",
+  "offers": {
+    "@type": "Offer",
+    "price": "15000",
+    "priceCurrency": "RUB",
+    "valueAddedTaxIncluded": "true",
+    "priceValidUntil": "2026-12-31"
+  }
+};
+---
+
+<Layout 
+  title="Аудит конверсии посадочной страницы — UlyanaWeb"
+  description="Профессиональный аудит конверсии лендинга за 48 часов. Найдем ошибки в оффере, текстах, дизайне и юзабилити, которые стоят вам клиентов. Всего за 15 000 руб вместо 25 000 руб."
+  schema={auditSchema}
+>
+  <Header />
+
+  <main class="audit-page">
+    {/* Section 1: Hero */}
+    <section class="hero-section section-padding">
+      <div class="container hero-container">
+        <div class="hero-badge">
+          <span>✦ 48-часовой аудит лендинга · Акция: 15 000 ₽ вместо 25 000 ₽</span>
+        </div>
+        
+        <h1 class="hero-title text-center">
+          Найдем утечки конверсии,<br />
+          из-за которых вы теряете клиентов.
+        </h1>
+        
+        <p class="hero-subtitle text-center">
+          Мы детально разберем вашу посадочную страницу и найдем всё, что мешает посетителям оставлять заявки: слабый оффер, невыразительные призывы к действию, логические разрывы, технические барьеры и отсутствие сигналов доверия.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary">Получить аудит лендинга — 15 000 ₽</a>
+          <a href="/ai-visibility-audit" class="btn btn-secondary">Аудит видимости ИИ →</a>
+        </div>
+        
+        <p class="hero-footnote text-center">
+          Акционная стоимость на ближайшие 10 аудитов. Стандартная цена: 25 000 ₽.
+        </p>
+
+        {/* Section 2: Browser Preview Mockup of the Report */}
+        <div class="hero-dashboard-mockup">
+          <div class="dashboard-header-bar">
+            <div class="dashboard-dots">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+            </div>
+            <span class="dashboard-title">launchaudit.net/your-conversion-report.pdf</span>
+          </div>
+          
+          <div class="dashboard-grid">
+            {/* Left Column (1/3 width) */}
+            <div class="dashboard-col col-left">
+              <div class="dashboard-card-inner">
+                <span class="card-label-mini">Offer Clarity Score</span>
+                <div class="score-display">
+                  <span class="score-number-big">62</span>
+                  <span class="score-total">/100</span>
+                </div>
+                <div class="score-progress-bar">
+                  <div class="score-progress-fill" style="width: 62%;"></div>
+                </div>
+                <span class="score-status-label">Needs improvement</span>
+              </div>
+
+              <div class="dashboard-card-inner">
+                <span class="card-label-mini">Quick summary</span>
+                <ul class="summary-list-items">
+                  <li>
+                    <span class="list-key">Main issue</span>
+                    <span class="list-value val-bad">Weak offer clarity</span>
+                  </li>
+                  <li>
+                    <span class="list-key">Top fix</span>
+                    <span class="list-value val-good">Rewrite hero + CTA</span>
+                  </li>
+                  <li>
+                    <span class="list-key">Priority fixes</span>
+                    <span class="list-value val-warn">10 items</span>
+                  </li>
+                  <li>
+                    <span class="list-key">Delivery</span>
+                    <span class="list-value val-good">48 hours</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Right Column (2/3 width) */}
+            <div class="dashboard-col col-right">
+              <div class="dashboard-card-inner">
+                <span class="card-label-mini">Section 01 — Hero Rewrite</span>
+                <div class="rewrite-comparison-grid">
+                  <div class="rewrite-box-before">
+                    <span class="box-badge-before">Before</span>
+                    <p class="rewrite-text">«Мы помогаем бизнесу расти в онлайне с помощью передовых технологий.»</p>
+                    <span class="rewrite-note note-red">Размыто. Нет конкретного результата. Нет целевой аудитории.</span>
+                  </div>
+                  <div class="rewrite-box-after">
+                    <span class="box-badge-after">After</span>
+                    <p class="rewrite-text">«Смысловой аудит и пересборка сайтов для B2B-компаний. Устраняем барьеры конверсии и пишем продающие тексты.»</p>
+                    <span class="rewrite-note note-green">Конкретно. Отражает результат. Выделяет аудиторию.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card-inner">
+                <span class="card-label-mini">Section 02 — Priority Fixes</span>
+                <ul class="priority-list-preview">
+                  <li>
+                    <span class="list-num">1.</span>
+                    <p>Переписать главный заголовок, сделав акцент на бизнес-результате для клиента</p>
+                    <span class="priority-badge-high">High</span>
+                  </li>
+                  <li>
+                    <span class="list-num">2.</span>
+                    <p>Добавить блок отзывов с конкретными цифрами и лицами выше линии сгиба</p>
+                    <span class="priority-badge-high">High</span>
+                  </li>
+                  <li>
+                    <span class="list-num">3.</span>
+                    <p>Увеличить размер кнопки целевого действия (CTA) и добавить поясняющий подстрочник</p>
+                    <span class="priority-badge-medium">Medium</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="dashboard-card-inner checked-tags-inner">
+                <div class="reviewed-tags-wrapper">
+                  <span class="reviewed-tag">✓ Offer clarity</span>
+                  <span class="reviewed-tag">✓ CTA strength</span>
+                  <span class="reviewed-tag">✓ Trust signals</span>
+                  <span class="reviewed-tag">✓ Mobile check</span>
+                  <span class="reviewed-tag">✓ Message gaps</span>
+                  <span class="reviewed-tag">✓ Hero rewrite</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Section 3: The Problem */}
+    <section class="problems-section section-padding">
+      <div class="container text-center">
+        <span class="section-badge-blue">The problem</span>
+        <h2 class="section-title">У большинства сайтов одинаковые проблемы.</h2>
+        <p class="section-subtitle-centered">
+          Чаще всего низкая конверсия — это не проблема плохой верстки или некрасивого дизайна. Это проблема позиционирования, логики и текстов.
+        </p>
+
+        <div class="problems-grid-box">
+          <div class="problem-item-card">
+            <span class="problem-arrow-bullet">—</span>
+            <p>Посетители не понимают суть вашего предложения в течение первых 5 секунд на странице</p>
+          </div>
+          <div class="problem-item-card">
+            <span class="problem-arrow-bullet">—</span>
+            <p>Главный экран написан сложным абстрактным языком, не ориентированным на целевого клиента</p>
+          </div>
+          <div class="problem-item-card">
+            <span class="problem-arrow-bullet">—</span>
+            <p>Кнопки призыва к действию (CTA) размыты, незаметны или требуют слишком большого шага</p>
+          </div>
+          <div class="problem-item-card">
+            <span class="problem-arrow-bullet">—</span>
+            <p>На сайте отсутствуют сигналы авторитета (кейсы, отзывы, реквизиты) или они выглядят неубедительно</p>
+          </div>
+          <div class="problem-item-card">
+            <span class="problem-arrow-bullet">—</span>
+            <p>Страница отлично смотрится на компьютере, но полностью ломается и теряет логику на смартфонах</p>
+          </div>
+          <div class="problem-item-card">
+            <span class="problem-arrow-bullet">—</span>
+            <p>Тексты состоят из шаблонной воды («динамично развивающаяся компания») и не отражают преимуществ</p>
+          </div>
+        </div>
+        
+        <p class="problems-footer-text">
+          Все эти ошибки легко исправить, если взглянуть на страницу глазами вашего клиента.
+        </p>
+      </div>
+    </section>
+
+    {/* Section 4: What's included (Scope) */}
+    <section class="scope-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge-blue">Deliverables</span>
+          <h2 class="section-title">Что входит в аудит</h2>
+        </div>
+
+        <div class="grid-3 scope-grid">
+          {/* Card 1 */}
+          <div class="glass-card scope-card">
+            <span class="scope-num">01</span>
+            <h3>Оценка ясности оффера</h3>
+            <p>Насколько понятно ваше предложение с первых секунд. Проверим, считывается ли суть продукта и его выгода.</p>
+          </div>
+
+          {/* Card 2 */}
+          <div class="glass-card scope-card">
+            <span class="scope-num">02</span>
+            <h3>Анализ главного экрана</h3>
+            <p>Разберем заголовок, подзаголовок и ключевой визуальный элемент на предмет соответствия целям бизнеса.</p>
+          </div>
+
+          {/* Card 3 */}
+          <div class="glass-card scope-card">
+            <span class="scope-num">03</span>
+            <h3>Анализ призывов к действию</h3>
+            <p>Проверим понятность, расположение и формулировки на кнопках заказа. Устраним лишнее трение при заполнении форм.</p>
+          </div>
+
+          {/* Card 4 */}
+          <div class="glass-card scope-card">
+            <span class="scope-num">04</span>
+            <h3>Анализ сигналов доверия</h3>
+            <p>Проверим убедительность отзывов, логотипов клиентов, кейсов, сертификатов и других триггеров авторитетности.</p>
+          </div>
+
+          {/* Card 5 */}
+          <div class="glass-card scope-card">
+            <span class="scope-num">05</span>
+            <h3>Чекап мобильной версии</h3>
+            <p>Анализ удобства чтения текстов, заполнения лид-форм и взаимодействия с интерфейсом со смартфонов.</p>
+          </div>
+
+          {/* Card 6 */}
+          <div class="glass-card scope-card">
+            <span class="scope-num">06</span>
+            <h3>Анализ смысловых пробелов</h3>
+            <p>Проверим, отвечает ли структура лендинга на основные возражения, сомнения и страхи клиентов перед покупкой.</p>
+          </div>
+
+          {/* Card 7 */}
+          <div class="glass-card scope-card">
+            <span class="scope-num">07</span>
+            <h3>Вариант готового рерайта</h3>
+            <p>Мы не просто критикуем, а пишем готовые тексты для заголовка и подзаголовка, которые вы можете сразу внедрить.</p>
+          </div>
+
+          {/* Card 8 */}
+          <div class="glass-card scope-card">
+            <span class="scope-num">08</span>
+            <h3>ТОП-10 критических правок</h3>
+            <p>Список из 10 приоритетных изменений, расставленных по степени влияния на конверсию (высокий/средний).</p>
+          </div>
+
+          {/* Card 9 */}
+          <div class="glass-card scope-card">
+            <span class="scope-num">09</span>
+            <h3>Рекомендации по сборке</h3>
+            <p>Если текущий шаблон сайта технически устарел или его невозможно доработать — предложим план по полной пересборке.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Section 5: How it works */}
+    <section class="process-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge-blue">Process</span>
+          <h2 class="section-title">Как работает LaunchAudit</h2>
+          <p class="section-intro">Простой и быстрый процесс. Никаких лишних созвонов.</p>
+        </div>
+
+        <div class="grid-3 process-grid">
+          <div class="process-step">
+            <div class="step-num">01</div>
+            <h3>Отправляете ссылку</h3>
+            <p>Вы оплачиваете аудит и заполняете короткую форму: ссылка на сайт, описание вашего клиента и ключевые задачи страницы.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num">02</div>
+            <h3>Проводим аудит</h3>
+            <p>Мы детально изучаем страницу: оцениваем оффер, расположение кнопок, анализируем мобильную адаптивность и тексты.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num">03</div>
+            <h3>Получаете PDF-отчет</h3>
+            <p>В течение 48 часов на вашу почту приходит готовый PDF-отчет со всеми оценками, рерайтом главного экрана и списком приоритетных правок.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Section 6: Sample report */}
+    <section class="sample-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge-blue">Sample report</span>
+          <h2 class="section-title">Как выглядит ваш отчет</h2>
+          <p class="section-intro">Конкретные и практические рекомендации по оптимизации. Без лишней воды.</p>
+        </div>
+
+        <div class="sample-card-mockup">
+          <div class="sample-card-header">
+            <span class="sample-card-tag">LaunchAudit — Sample Report</span>
+            <span class="badge-mini-pdf">PDF</span>
+          </div>
+          <div class="sample-card-body">
+            <div class="sample-page-block">
+              <div class="preview-row">
+                <span class="preview-label">Section 01 — Offer Clarity</span>
+                <span class="score-mini">5/10</span>
+              </div>
+              <div class="preview-bar-bg"><div class="preview-bar-fill" style="width: 50%;"></div></div>
+              <p class="sample-page-text">Страница не объясняет, для кого именно предназначен продукт, в течение первых двух предложений. Главный заголовок сфокусирован на функциях системы, а не на результате для клиента.</p>
+            </div>
+            
+            <div class="sample-page-block border-top">
+              <span class="preview-label">Section 02 — Hero Rewrite</span>
+              <div class="sample-rewrite-box">
+                <div class="rewrite-col">
+                  <strong>Before:</strong>
+                  <p class="italic text-muted">«Мы помогаем бизнесу расти в онлайне.»</p>
+                </div>
+                <div class="rewrite-col highlighted">
+                  <strong>After:</strong>
+                  <p class="italic text-accent">«Смысловой аудит и пересборка сайтов для B2B-компаний. Устраняем барьеры конверсии и пишем продающие тексты.»</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sample-page-block border-top">
+              <span class="preview-label">Section 03 — Top Priority Fix #1</span>
+              <p class="sample-page-text">Перепишите главный заголовок, сфокусировав его на измеримой выгоде для клиента. Протестируйте: может ли посторонний человек понять суть вашего предложения за 5 секунд?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Section 7: Who it's for */}
+    <section class="audience-section section-padding">
+      <div class="container text-center">
+        <span class="section-badge-blue">Who it's for</span>
+        <h2 class="section-title">Создан для тех, у кого уже есть сайт</h2>
+        
+        <div class="audience-tags-grid">
+          <span>Основатели</span>
+          <span>Консультанты</span>
+          <span>Коучи</span>
+          <span>Агентства</span>
+          <span>Разработчики SaaS</span>
+          <span>ИИ-консультанты</span>
+          <span>Фрилансеры</span>
+          <span>Локальный бизнес</span>
+        </div>
+        
+        <p class="audience-footer-text">
+          Если у вас есть работающий сайт или лендинг, но вы недовольны количеством заявок и хотите понять причину — этот аудит для вас.
+        </p>
+      </div>
+    </section>
+
+    {/* Section 8: Pricing */}
+    <section id="pricing" class="pricing-section section-padding">
+      <div class="container text-center">
+        <span class="section-badge-blue">Pricing</span>
+        <h2 class="section-title font-heading">Один детальный аудит. Один разовый платеж.</h2>
+
+        <div class="glass-card pricing-main-box">
+          <div class="pricing-card-header">
+            <span class="price-val-big">15 000 ₽</span>
+            <p class="pricing-subtext-badge">Аудит конверсии посадочной страницы (лендинга)</p>
+            <p class="price-original-footnote">Стандартная цена: 25 000 ₽</p>
+          </div>
+
+          <div class="pricing-card-body">
+            <ul class="pricing-features-list">
+              <li>
+                <span class="pricing-check-icon">✓</span>
+                <span>Полный письменный аудит PDF</span>
+              </li>
+              <li>
+                <span class="pricing-check-icon">✓</span>
+                <span>Оценка ясности оффера (Offer Clarity Score)</span>
+              </li>
+              <li>
+                <span class="pricing-check-icon">✓</span>
+                <span>Рерайт заголовков главного экрана</span>
+              </li>
+              <li>
+                <span class="pricing-check-icon">✓</span>
+                <span>Анализ призывов к действию, блоков доверия и юзабилити</span>
+              </li>
+              <li>
+                <span class="pricing-check-icon">✓</span>
+                <span>Чекап удобства мобильной версии</span>
+              </li>
+              <li>
+                <span class="pricing-check-icon">✓</span>
+                <span>ТОП-10 приоритетных и пошаговых правок</span>
+              </li>
+              <li>
+                <span class="pricing-check-icon">✓</span>
+                <span>Срок выполнения — 48 часов после заполнения брифа</span>
+              </li>
+              <li>
+                <span class="pricing-check-icon">✓</span>
+                <span>Никаких скрытых платежей или подписок</span>
+              </li>
+            </ul>
+
+            <a href="#discuss" class="btn btn-primary pricing-order-btn">Получить аудит конверсии за 15 000 ₽ →</a>
+            <p class="pricing-secure-note">Безопасный платеж. Ссылка на форму отправляется сразу после оплаты.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Section 9: Cross-Promo */}
+    <section class="cross-promo-section section-padding">
+      <div class="container">
+        <div class="glass-card promo-horizontal-card">
+          <div class="promo-info">
+            <span class="tag-promo-badge">Также от UlyanaWeb</span>
+            <h3>Хотите узнать, готов ли ваш сайт к поиску через ИИ?</h3>
+            <p>
+              Аудит конверсии оптимизирует сайт для реальных посетителей. Если вы также хотите убедиться, что ваш сайт правильно сканируется и рекомендуется ИИ-ботами (ChatGPT, Perplexity, Gemini), пройдите аудит ИИ-видимости.
+            </p>
+          </div>
+          <div class="promo-action-btn">
+            <a href="/ai-visibility-audit" class="btn btn-secondary">Посмотреть аудит видимости AI →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Section 10: FAQ */}
+    <section class="faq-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge-blue">FAQ</span>
+          <h2 class="section-title">Часто задаваемые вопросы</h2>
+        </div>
+
+        <div class="faq-accordion-box">
+          <div class="faq-item-block">
+            <h4>Почему аудит стоит 15 000 рублей?</h4>
+            <p>Это специальная акционная цена на период запуска услуги для сбора первых отзывов и кейсов. Стандартная стоимость аудита составляет 25 000 рублей.</p>
+          </div>
+
+          <div class="faq-item-block">
+            <h4>Когда начинается отсчет 48 часов?</h4>
+            <p>Время отсчитывается с момента оплаты и заполнения вами короткой анкеты-брифа (ссылка на сайт, основные услуги, целевые клиенты).</p>
+          </div>
+
+          <div class="faq-item-block">
+            <h4>В каком виде я получу результат?</h4>
+            <p>Результат предоставляется в виде структурированного PDF-файла со скриншотами вашего сайта, разметкой проблемных зон и готовыми формулировками текстов.</p>
+          </div>
+
+          <div class="faq-item-block">
+            <h4>Что если мой сайт абсолютно новый или на нем нет трафика?</h4>
+            <p>Наш аудит является качественным разбором структуры, логики и смыслов. Трафик не влияет на проверку: ошибки в заголовках и призывах видны сразу.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Section 11: Final CTA Banner */}
+    <section id="discuss" class="final-cta-dark section-padding">
+      <div class="container text-center">
+        <h2>Сделайте ваш сайт понятным и убедительным</h2>
+        <p>Найдем все барьеры, мешающие пользователям оставлять заявки. Предоставим готовые варианты текстов и ТЗ для разработчика.</p>
+        <p class="cta-price-tag">Стоимость аудита: 15 000 ₽</p>
+        
+        {/* Simple inline form in notion style */}
+        <div class="cta-notion-form-wrapper">
+          <form class="notion-inline-form" id="finalRequestForm">
+            <input type="text" placeholder="Ссылка на ваш сайт" required id="form-site" class="form-input" />
+            <input type="text" placeholder="Telegram / WhatsApp" required id="form-contact" class="form-input" />
+            <button type="submit" class="btn btn-primary">Заказать аудит</button>
+          </form>
+          <div id="finalStatusMsg" class="form-status"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .audit-page {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  /* Section Badges and Tags */
+  .hero-badge {
+    display: inline-flex;
+    padding: 0.35rem 0.85rem;
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-default);
+    color: var(--color-text-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-block-end: 1.5rem;
+  }
+
+  .section-badge-blue {
+    display: inline-block;
+    color: var(--color-accent-text);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-block-end: 0.75rem;
+  }
+
+  /* Typography */
+  .hero-title {
+    font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+    font-weight: normal;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    margin-block-end: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.05rem, 1rem + 0.25vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    max-inline-size: 700px;
+    margin-inline: auto;
+    margin-block-end: 2rem;
+  }
+
+  .section-subtitle-centered {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    max-inline-size: 650px;
+    margin-inline: auto;
+    margin-block-end: 3.5rem;
+  }
+
+  /* Actions and Buttons */
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-block-end: 1rem;
+  }
+
+  .hero-footnote {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-block-end: 4rem;
+  }
+
+  /* Mockup Layout */
+  .hero-dashboard-mockup {
+    width: 100%;
+    max-inline-size: 960px;
+    margin-inline: auto;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-default);
+    box-shadow: none !important;
+    overflow: hidden;
+  }
+
+  .dashboard-header-bar {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    padding: 0.6rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .dashboard-dots {
+    display: flex;
+    gap: 6px;
+    margin-right: 1rem;
+  }
+
+  .dashboard-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+
+  .dot-red { background-color: #ff5f56; }
+  .dot-yellow { background-color: #ffbd2e; }
+  .dot-green { background-color: #27c93f; }
+
+  .dashboard-title {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-family: monospace;
+    flex-grow: 1;
+    text-align: left;
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: left;
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+
+  .dashboard-col {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .col-left {
+    border-bottom: 1px solid var(--color-border);
+    @media (min-width: 768px) {
+      border-bottom: none;
+      border-right: 1px solid var(--color-border);
+    }
+  }
+
+  .dashboard-card-inner {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-default);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card-label-mini {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* Score display inner styles */
+  .score-display {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+
+  .score-number-big {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1;
+  }
+
+  .score-total {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+  }
+
+  .score-progress-bar {
+    width: 100%;
+    height: 7px;
+    background: var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .score-progress-fill {
+    height: 100%;
+    background-color: var(--color-accent);
+  }
+
+  .score-status-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Summary lists */
+  .summary-list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .summary-list-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(55, 53, 47, 0.05);
+    padding-block-end: 0.4rem;
+    &:last-child {
+      border-bottom: none;
+      padding-block-end: 0;
+    }
+  }
+
+  .list-key {
+    color: var(--color-text-secondary);
+  }
+
+  .list-value {
+    font-weight: 600;
+  }
+
+  .val-bad { color: #f85149; }
+  .val-warn { color: #d29922; }
+  .val-good { color: #27c93f; }
+
+  /* Hero Rewrite details inside mockup */
+  .rewrite-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    @media (min-width: 992px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .rewrite-box-before, .rewrite-box-after {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-default);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .rewrite-box-before { background-color: transparent; }
+  .rewrite-box-after { background-color: transparent; border-color: var(--color-accent-text); }
+
+  .box-badge-before, .box-badge-after {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    align-self: flex-start;
+  }
+
+  .box-badge-before { color: var(--color-text-muted); }
+  .box-badge-after { color: var(--color-accent-text); }
+
+  .rewrite-text {
+    line-height: 1.4;
+    color: var(--color-text-primary);
+  }
+
+  .rewrite-note {
+    font-size: 0.7rem;
+  }
+
+  .note-red { color: #f85149; }
+  .note-green { color: #2e7d32; }
+
+  /* Priority fix items list */
+  .priority-list-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .priority-list-preview li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(55, 53, 47, 0.05);
+    padding-block-end: 0.5rem;
+    &:last-child {
+      border-bottom: none;
+      padding-block-end: 0;
+    }
+  }
+
+  .priority-list-preview p {
+    flex-grow: 1;
+    margin-inline: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .list-num {
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .priority-badge-high, .priority-badge-medium {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.15rem 0.45rem;
+    border-radius: 10px;
+  }
+
+  .priority-badge-high {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-accent-text);
+  }
+
+  .priority-badge-medium {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .reviewed-tags-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .reviewed-tag {
+    font-size: 0.7rem;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    padding: 0.25rem 0.5rem;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-default);
+  }
+
+  /* Problems Section */
+  .problems-grid-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-block: 3rem;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .problem-item-card {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: none !important;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .problem-arrow-bullet {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-accent-text);
+    line-height: 1.2;
+  }
+
+  .problem-item-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+
+  .problems-footer-text {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    max-inline-size: 600px;
+    margin-inline: auto;
+  }
+
+  /* Scope and Grid styling */
+  .scope-grid {
+    gap: 1.5rem;
+  }
+
+  .scope-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .scope-num {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-accent-text);
+  }
+
+  .scope-card h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+  }
+
+  .scope-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Process steps */
+  .process-grid {
+    gap: 3rem;
+  }
+
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .step-num {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-accent-text);
+    text-shadow: none;
+    line-height: 1;
+  }
+
+  .process-step h3 {
+    font-size: 1.15rem;
+    text-transform: none;
+  }
+
+  .process-step p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Sample Report Preview */
+  .sample-card-mockup {
+    width: 100%;
+    max-inline-size: 800px;
+    margin-inline: auto;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-default);
+    overflow: hidden;
+    margin-block-start: 3rem;
+    text-align: left;
+  }
+
+  .sample-card-header {
+    background: transparent;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sample-card-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-accent-text);
+    text-transform: uppercase;
+  }
+
+  .badge-mini-pdf {
+    background-color: var(--color-accent);
+    color: #1a1a1a;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 0.15rem 0.4rem;
+    border-radius: var(--radius-default);
+  }
+
+  .sample-card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sample-page-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .preview-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .preview-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .score-mini {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .preview-bar-bg {
+    width: 100%;
+    height: 7px;
+    background: var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .preview-bar-fill {
+    height: 100%;
+    background-color: var(--color-accent);
+  }
+
+  .sample-page-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .sample-rewrite-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-block-start: 0.5rem;
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .rewrite-col {
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-default);
+    background: transparent;
+    font-size: 0.85rem;
+  }
+
+  .rewrite-col.highlighted {
+    background-color: transparent;
+    border-color: var(--color-accent-text);
+  }
+
+  .rewrite-col strong {
+    display: block;
+    margin-block-end: 0.25rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .text-muted {
+    color: var(--color-text-muted);
+  }
+
+  .border-top {
+    border-top: 1px solid var(--color-border);
+    padding-block-start: 1.5rem;
+  }
+
+  /* Who it's for */
+  .audience-tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    max-inline-size: 750px;
+    margin-inline: auto;
+    margin-block: 2.5rem;
+  }
+
+  .audience-tags-grid span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius-default);
+    box-shadow: none !important;
+  }
+
+  .audience-footer-text {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    max-inline-size: 550px;
+    margin-inline: auto;
+  }
+
+  /* Pricing main block */
+  .pricing-main-box {
+    width: 100%;
+    max-inline-size: 600px;
+    margin-inline: auto;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 3rem;
+    margin-block-start: 3rem;
+    text-align: center;
+    box-shadow: none !important;
+  }
+
+  .pricing-card-header {
+    border-bottom: 1px solid var(--color-border);
+    padding-block-end: 2rem;
+    margin-block-end: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .price-val-big {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1;
+  }
+
+  .pricing-subtext-badge {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .price-original-footnote {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+  }
+
+  .pricing-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    margin-block-end: 2rem;
+  }
+
+  .pricing-features-list li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+  }
+
+  .pricing-check-icon {
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .pricing-order-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  .pricing-secure-note {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-block-start: 0.75rem;
+  }
+
+  /* Promo Banner Horizontal */
+  .promo-horizontal-card {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    padding: 2.5rem;
+    border-radius: var(--radius-card);
+    box-shadow: none !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    text-align: left;
+    
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .promo-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-inline-size: 600px;
+  }
+
+  .tag-promo-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 0.5px;
+  }
+
+  .promo-info h3 {
+    font-size: 1.35rem;
+    color: var(--color-text-primary);
+  }
+
+  .promo-info p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .promo-action-btn {
+    flex-shrink: 0;
+    width: 100%;
+    @media (min-width: 768px) {
+      width: auto;
+    }
+  }
+
+  /* FAQ styling */
+  .faq-accordion-box {
+    max-inline-size: 800px;
+    margin-inline: auto;
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: none !important;
+    overflow: hidden;
+    text-align: left;
+  }
+
+  .faq-item-block {
+    padding: 1.75rem 2rem;
+    border-bottom: 1px solid var(--color-border);
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .faq-item-block h4 {
+    font-size: 1.05rem;
+    color: var(--color-text-primary);
+    margin-block-end: 0.5rem;
+  }
+
+  .faq-item-block p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Final CTA Dark Notion style */
+  .final-cta-dark {
+    background-color: #1A1A1A;
+    color: #ffffff;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .final-cta-dark h2 {
+    color: #ffffff;
+    font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+    margin-block-end: 1rem;
+    letter-spacing: -1px;
+  }
+
+  .final-cta-dark p {
+    color: #9CA3AF;
+    max-inline-size: 600px;
+    margin-inline: auto;
+    line-height: 1.6;
+    margin-block-end: 1.5rem;
+  }
+
+  .final-cta-dark .cta-price-tag {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-block-end: 2.5rem;
+  }
+
+  .cta-notion-form-wrapper {
+    max-inline-size: 550px;
+    margin-inline: auto;
+  }
+
+  .notion-inline-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    
+    @media (min-width: 576px) {
+      flex-direction: row;
+      gap: 0.5rem;
+    }
+  }
+
+  .notion-inline-form input {
+    background-color: #ffffff;
+    border: 1px solid #374151;
+    color: #1a1a1a;
+  }
+
+  .notion-inline-form button {
+    flex-shrink: 0;
+  }
+
+  .form-status {
+    font-size: 0.85rem;
+    margin-block-start: 0.75rem;
+    text-align: center;
+  }
+
+  .form-status.success {
+    color: #27c93f;
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  // Simple Requests Form handler
+  const initRequestForm = () => {
+    const finalForm = document.getElementById('finalRequestForm') as HTMLFormElement;
+    const finalStatus = document.getElementById('finalStatusMsg');
+
+    if (finalForm && finalStatus) {
+      finalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        finalStatus.textContent = "Отправка...";
+        finalStatus.className = "form-status";
+        
+        setTimeout(() => {
+          finalStatus.textContent = "Спасибо! Заявка принята. Я свяжусь с вами в ближайшее время.";
+          finalStatus.className = "form-status success";
+          finalForm.reset();
+        }, 1200);
+      });
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initRequestForm();
+  });
+</script>

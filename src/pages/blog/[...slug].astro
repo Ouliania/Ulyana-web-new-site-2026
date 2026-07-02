@@ -1,0 +1,345 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BlogCTA from '../../components/BlogCTA.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.id }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+
+// filter headings to H2 depth for a clean table of contents
+const tocHeadings = headings.filter(h => h.depth === 2);
+
+// Specific JSON-LD Schema for BlogPosting (highly optimized for search/AI crawlers)
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": entry.data.title,
+  "description": entry.data.description,
+  "datePublished": entry.data.pubDate.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": "Ульяна Кирпичникова",
+    "url": Astro.site ? Astro.site.toString() : "https://ulyanaweb.ru"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ульяна Кирпичникова",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ulyanaweb.ru/favicon.png"
+    }
+  }
+};
+---
+
+<Layout 
+  title={`${entry.data.title} | Блог Ульяны Кирпичниковой`} 
+  description={entry.data.description}
+  schema={blogSchema}
+  isBlog={true}
+>
+  <Header />
+
+  <main class="post-main section-padding">
+    <article class="container post-container">
+      <a href="/blog" class="back-link">← Назад в блог</a>
+      
+      <header class="post-header">
+        <div class="post-meta">
+          <time datetime={entry.data.pubDate.toISOString()}>
+            {entry.data.pubDate.toLocaleDateString('ru-RU', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+          <div class="post-tags">
+            {entry.data.tags.map(tag => (
+              <span class="post-tag">{tag}</span>
+            ))}
+          </div>
+        </div>
+        
+        <h1 class="post-title">{entry.data.title}</h1>
+      </header>
+
+      {tocHeadings.length > 0 && (
+        <nav class="post-toc">
+          <h4 class="toc-title">Содержание статьи</h4>
+          <ul class="toc-list">
+            {tocHeadings.map(h => (
+              <li><a href={`#${h.slug}`}>{h.text}</a></li>
+            ))}
+          </ul>
+        </nav>
+      )}
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <BlogCTA />
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .post-main {
+    padding-block-start: 120px;
+    min-block-size: 80vh;
+  }
+
+  .post-container {
+    max-inline-size: 800px;
+  }
+
+  .back-link {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    display: inline-block;
+    margin-block-end: 2rem;
+    transition: color 0.15s ease, transform 0.15s;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent-text);
+    transform: translateX(-4px);
+  }
+
+  .post-header {
+    margin-block-end: 3rem;
+  }
+
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-block-end: 1rem;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .post-tag {
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-default);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .post-title {
+    font-size: var(--fs-h2);
+    line-height: 1.2;
+    color: var(--color-text-primary);
+  }
+
+  .post-toc {
+    background: var(--color-bg-subtle);
+    border-left: 1px solid var(--color-text-primary);
+    padding: 1.5rem 2rem;
+    margin-block-start: 1rem;
+    margin-block-end: 3rem;
+    max-inline-size: 680px;
+    width: 100%;
+  }
+
+  .toc-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-block-end: 1.25rem;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+  }
+
+  .toc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style-type: none;
+    padding-inline-start: 0;
+  }
+
+  .toc-list li {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  .toc-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+  }
+
+  .toc-list a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .toc-list a:hover {
+    color: var(--color-text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Prose Styles for rendering markdown content */
+  .prose {
+    max-inline-size: 680px;
+    width: 100%;
+  }
+
+  .prose :global(p) {
+    font-size: var(--fs-body);
+    line-height: 1.7;
+    margin-block-end: 1.5rem;
+    color: var(--color-text-secondary);
+  }
+
+  .prose :global(a) {
+    color: var(--color-text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+
+  .prose :global(a:hover) {
+    color: var(--color-text-secondary);
+    text-decoration-color: var(--color-accent-text);
+  }
+
+  .prose :global(h2) {
+    font-size: var(--fs-h3);
+    margin-block-start: 2.5rem;
+    margin-block-end: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .prose :global(h3) {
+    font-size: 1.25rem;
+    margin-block-start: 2rem;
+    margin-block-end: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .prose :global(ul), .prose :global(ol) {
+    margin-block-end: 1.5rem;
+    padding-inline-start: 1.5rem;
+  }
+
+  .prose :global(li) {
+    margin-block-end: 0.5rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .prose :global(ul) {
+    list-style-type: disc;
+  }
+
+  .prose :global(ol) {
+    list-style-type: decimal;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 1px solid var(--color-text-primary);
+    padding-inline-start: 1.5rem;
+    margin-inline: 0;
+    margin-block: 2rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+
+  .prose :global(code) {
+    font-family: monospace;
+    background: var(--color-bg-subtle);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-default);
+    font-size: 0.9em;
+    color: var(--color-text-primary);
+  }
+
+  .prose :global(pre) {
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+    border-radius: var(--radius-default);
+    overflow-x: auto;
+    margin-block-end: 2rem;
+  }
+
+  .prose :global(pre code) {
+    background: transparent;
+    padding: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Table Styles for Markdown Content */
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block-start: 1rem;
+    margin-block-end: 2rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .prose :global(table) {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  .prose :global(th) {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+  }
+
+  .prose :global(td) {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    vertical-align: top;
+  }
+
+  .prose :global(tr:hover td) {
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-subtle);
+  }
+</style>

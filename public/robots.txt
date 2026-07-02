@@ -1,0 +1,30 @@
+# www.robotstxt.org
+# ulyanaweb.ru robots.txt
+
+# Allow all search engine bots and AI crawlers
+User-agent: *
+Allow: /
+Disallow: /dist/
+Disallow: /node_modules/
+
+# Specifically authorize major AI crawlers for Generative Engine Optimization (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: YandexAdditional
+Allow: /
+
+# Reference the XML sitemap
+Sitemap: https://ulyanaweb.ru/sitemap-index.xml

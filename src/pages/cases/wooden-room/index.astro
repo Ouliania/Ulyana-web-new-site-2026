@@ -1,0 +1,2569 @@
+---
+// Self-contained page for the Wooden Chalets case study.
+// It bypasses the global site layout to behave as a clean, independent sub-site.
+import { Image } from 'astro:assets';
+import slider1 from '../../../assets/cases/wooden-room/slider-1.png';
+import slider2 from '../../../assets/cases/wooden-room/slider-2.png';
+import slider3 from '../../../assets/cases/wooden-room/slider-3.png';
+import slider4 from '../../../assets/cases/wooden-room/slider-4.png';
+---
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wooden Chalets — Aliya Resort & Spa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Откройте для себя роскошные деревянные шале в Сигирии. Экологичный дизайн, комфорт премиум-класса и дикая природа Шри-Ланки." />
+    
+    <!-- Google Fonts: Bebas Neue, Inter and Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+      /* --- FONTS --- */
+      @font-face {
+        font-family: 'Bebas Neue';
+        src: url('/fonts/BebasNeue-Book.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Bebas Neue';
+        src: url('/fonts/BebasNeue-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Bebas Neue';
+        src: url('/fonts/BebasNeue-Bold.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* --- NEUE MONTREAL FONTS --- */
+      @font-face {
+        font-family: 'Neue Montreal';
+        src: url('/fonts/NeueMontreal-Light.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Neue Montreal';
+        src: url('/fonts/NeueMontreal-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Neue Montreal';
+        src: url('/fonts/NeueMontreal-Medium.otf') format('opentype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Neue Montreal';
+        src: url('/fonts/NeueMontreal-Bold.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* --- DESIGN SYSTEM & CSS VARIABLES --- */
+      :root {
+        --color-white: #FCFDFF;
+        --color-black: #121212;
+        --color-orange: #F6911A;
+        --color-orange-hover: #e5800f;
+        --color-gray-text: #888888;
+        --color-border: #E8E9EB;
+        --color-border-dark: #A9A9A9;
+        
+        --color-footer-bg: #C9DAF2;
+        --color-footer-link: #4C86D3;
+        --color-footer-text: #121212;
+        
+        --font-sans: 'Neue Montreal', 'Inter', sans-serif;
+        --font-heading: 'Bebas Neue', 'Neue Montreal', 'Inter', sans-serif;
+        --font-roboto: 'Roboto', sans-serif;
+      }
+      
+      /* --- RESET & GLOBAL STYLES --- */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      
+      body {
+        font-family: var(--font-sans);
+        background: #FFFFFF;
+        color: var(--color-black);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+      }
+      
+      button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      
+      /* --- LAYOUT UTILITIES --- */
+      .container {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+      
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+      }
+      
+      /* --- HERO SECTION --- */
+      .hero-section {
+        position: relative;
+        height: 815px; /* Figma hero height */
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 2.33%, rgba(0, 0, 0, 0) 51.17%), 
+                    url('https://ulyanaweb.ru/img/cases/wooden-chalet.webp') center/cover no-repeat;
+      }
+      
+      @media (max-width: 768px) {
+        .hero-section {
+          height: auto;
+          min-height: 600px;
+        }
+      }
+      
+      /* --- NAVBAR --- */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 40px; /* Figma navbar padding */
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 1600px; /* Figma navbar width */
+        height: 78px; /* Figma navbar height */
+      }
+      
+      @media (max-width: 768px) {
+        .navbar {
+          position: relative;
+          transform: none;
+          left: 0;
+          height: auto;
+          padding: 20px;
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      
+      .nav-item {
+        font-family: var(--font-sans);
+        font-size: 16px;
+        font-weight: 400;
+        color: #F1F1F1;
+        cursor: pointer;
+      }
+      
+      .nav-item:hover {
+        color: var(--color-orange);
+      }
+      
+      .logo {
+        height: 58px;
+        width: auto;
+      }
+      
+      .lang-switch {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .lang-btn {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #F1F1F1;
+        font-family: var(--font-roboto);
+        font-size: 16px;
+      }
+      
+      .lang-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #FFFFFF;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border-radius: 4px;
+        padding: 8px 0;
+        min-width: 80px;
+        z-index: 200;
+      }
+      
+      .lang-dropdown.active {
+        display: block;
+      }
+      
+      .lang-option {
+        display: block;
+        padding: 8px 16px;
+        color: var(--color-black);
+        font-size: 14px;
+        text-align: left;
+        width: 100%;
+      }
+      
+      .lang-option:hover {
+        background: #F5F7FA;
+      }
+      
+      /* --- HERO TITLE --- */
+      .hero-title-container {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 0;
+      }
+      
+      .hero-title {
+        font-family: var(--font-heading);
+        font-weight: 400; /* Match Figma Regular weight */
+        font-size: clamp(4rem, 12vw, 15.6rem); /* Rescales Bebas Neue up to 250px */
+        line-height: 80%;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        color: #F1F1F1;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+      
+      @media (min-width: 1200px) {
+        .hero-title {
+          position: absolute;
+          width: 1404px;
+          height: 200px;
+          left: calc(50% - 1404px / 2); /* centered equivalent to left: 98px on 1600px width */
+          top: 499px;
+          font-size: 250px;
+          font-weight: 400; /* Match Figma Regular weight */
+          text-align: center;
+        }
+      }
+
+      /* --- ABOUT SECTION --- */
+      .about-section {
+        margin-top: 109px;
+        margin-bottom: 0; /* Removed bottom margin */
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      
+      .about-text {
+        width: 100%;
+        max-width: 1026px; /* Matched to Figma width */
+        min-height: 180px;
+        font-family: var(--font-heading);
+        font-weight: 300; /* Bebas Neue Book (thin) by default */
+        font-size: 52px; /* Reduced from 60px to fit exactly in 3 lines */
+        line-height: 100%;
+        text-align: center;
+        letter-spacing: -0.01em;
+        color: #121212;
+        padding: 0 20px;
+        text-wrap: balance; /* Keep lines visually balanced */
+      }
+      
+      .about-text strong {
+        font-weight: 400; /* Bebas Neue Regular for bold words */
+      }
+      
+      .about-text .text-orange {
+        color: var(--color-orange);
+        font-weight: 400; /* Regular weight for orange word */
+      }
+      
+      @media (max-width: 1024px) {
+        .about-section {
+          margin-top: 60px;
+          margin-bottom: 40px;
+        }
+        .about-text {
+          font-size: 36px;
+          min-height: auto;
+        }
+      }
+      
+      /* --- BOOKING WIDGET --- */
+      .booking-widget-wrapper {
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 80px);
+        max-width: 1520px;
+        z-index: 99;
+      }
+      
+      @media (min-width: 1024px) {
+        .booking-widget-wrapper {
+          position: absolute;
+          width: calc(100% - 80px);
+          max-width: 1520px;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 698px;
+          bottom: auto;
+        }
+        .booking-widget {
+          height: 80px;
+          padding: 10px 20px;
+        }
+      }
+      
+      .booking-widget {
+        background: var(--color-white);
+        border-radius: 8px;
+        padding: 15px 30px;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+        align-items: center;
+        gap: 30px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      
+      .widget-item {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        position: relative;
+      }
+      
+      .widget-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: -15px;
+        top: 15%;
+        height: 70%;
+        width: 1px;
+        background: var(--color-border-dark);
+      }
+      
+      .widget-label {
+        font-family: var(--font-sans);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 120%;
+        color: #888888;
+      }
+      
+      .widget-value {
+        font-family: var(--font-sans);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 100%;
+        color: #121212;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .widget-input {
+        border: none;
+        background: transparent;
+        font-family: var(--font-sans);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 100%;
+        color: #121212;
+        width: 100%;
+        cursor: pointer;
+        outline: none;
+      }
+      
+      /* Widget custom Dropdown for hotels */
+      .hotel-dropdown {
+        display: none;
+        position: absolute;
+        top: calc(100% + 15px);
+        left: 0;
+        background: #FFFFFF;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        width: 320px;
+        max-height: 250px;
+        overflow-y: auto;
+        z-index: 300;
+        padding: 10px 0;
+      }
+      
+      .hotel-dropdown.active {
+        display: block;
+      }
+      
+      .hotel-option {
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.2s;
+        text-align: left;
+      }
+      
+      .hotel-option:hover {
+        background: #F0F4F8;
+        color: var(--color-orange);
+      }
+      
+      .btn-widget-book {
+        background: var(--color-orange);
+        color: #FFFFFF;
+        font-weight: 500;
+        font-size: 18px;
+        padding: 15px 30px;
+        border-radius: 8px;
+        transition: background 0.3s;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        justify-self: stretch;
+      }
+      
+      .btn-widget-book:hover {
+        background: var(--color-orange-hover);
+      }
+      
+      /* --- RESPONSIVE BOOKING WIDGET --- */
+      @media (max-width: 1200px) {
+        .booking-widget {
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+        }
+        .widget-item:not(:last-child)::after {
+          display: none;
+        }
+        .btn-widget-book {
+          grid-column: span 2;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .booking-widget-wrapper {
+          position: relative;
+          bottom: 0;
+          left: 0;
+          transform: none;
+          width: 100%;
+          padding: 0 20px;
+          margin-top: -40px;
+        }
+        .booking-widget {
+          grid-template-columns: 1fr;
+        }
+        .btn-widget-book {
+          grid-column: span 1;
+        }
+      }
+      
+      /* --- SECTION: DETAILS & AMENITIES --- */
+      /* --- SECTION: DETAILS & AMENITIES --- */
+      .details-section {
+        width: 100%;
+        max-width: 1520px;
+        margin: 0 auto;
+        padding: 110px 40px 100px; /* Added 110px padding-top to act as next-block margin */
+      }
+      
+      @media (max-width: 1024px) {
+        .details-section {
+          padding: 0 20px 60px;
+        }
+      }
+      
+      .details-grid {
+        display: grid;
+        grid-template-columns: 365px 1140px;
+        gap: 15px;
+        align-items: start;
+        position: relative;
+        height: 760px;
+      }
+      
+      @media (max-width: 1600px) {
+        .details-grid {
+          grid-template-columns: 365px 1fr;
+          height: auto;
+        }
+      }
+      
+      @media (max-width: 1024px) {
+        .details-grid {
+          grid-template-columns: 1fr;
+          height: auto;
+          gap: 40px;
+        }
+      }
+      
+      .details-info {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px 20px 30px;
+        width: 365px;
+        height: 760px;
+        border: 1px solid #F7911A; /* Text/orange border */
+        border-radius: 12px;
+        background: #FCFDFF;
+        flex-shrink: 0;
+      }
+      
+      @media (max-width: 1024px) {
+        .details-info {
+          width: 100%;
+          height: auto;
+          gap: 30px;
+        }
+      }
+      
+      .details-top-block {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      
+      .details-info h2 {
+        font-family: var(--font-sans); /* Neue Montreal */
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        color: #000000;
+        border-bottom: 1px solid #E0E1E3;
+        padding-bottom: 10px;
+        margin: 0;
+        width: 100%;
+      }
+      
+      .details-info p {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        color: #000000;
+        text-align: justify;
+        margin: 0;
+        width: 100%;
+      }
+      
+      .details-bottom-block {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .specs-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+      
+      .spec-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #E0E1E3;
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 120%;
+        color: #121212;
+      }
+      
+      .spec-label {
+        font-weight: 400;
+        color: #121212;
+      }
+      
+      .spec-value {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        font-weight: 400; /* Default regular weight */
+      }
+      
+      .spec-num {
+        font-weight: 500; /* Medium weight only for numbers */
+      }
+      
+      /* Amenities Grid (Frame 1000002500) */
+      .amenities-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: flex-start;
+        gap: 5px;
+        width: 325px;
+        height: 345px;
+      }
+      
+      @media (max-width: 1024px) {
+        .amenities-grid {
+          width: 100%;
+          height: auto;
+        }
+      }
+      
+      .amenity-card {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 0 0 10px;
+        gap: 17px;
+        width: 157px;
+        height: 65px;
+        background: #FCFDFF;
+        border: 1px solid #EAEAEA;
+        border-radius: 12px;
+        transition: border-color 0.3s;
+      }
+      
+      @media (max-width: 1024px) {
+        .amenity-card {
+          width: calc(50% - 3px);
+        }
+      }
+      
+      .amenity-card:hover {
+        border-color: var(--color-orange);
+      }
+      
+      .amenity-icon-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: #EFF0F2; /* Light grey */
+        border-radius: 12px;
+        flex-shrink: 0;
+      }
+      
+      .amenity-icon {
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .amenity-img-file {
+        width: 25px;
+        height: 25px;
+        object-fit: contain;
+      }
+      
+      .amenity-label {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 120%;
+        color: #121212;
+        text-align: left;
+      }
+      
+      /* Slider Column */
+      .slider-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1140px;
+        height: 760px;
+      }
+      
+      @media (max-width: 1024px) {
+        .slider-container {
+          height: auto;
+        }
+      }
+      
+      .slider-main {
+        position: relative;
+        width: 100%;
+        height: 660px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      
+      @media (max-width: 768px) {
+        .slider-main {
+          height: 350px;
+        }
+      }
+      
+      .slider-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: background 0.3s, color 0.3s;
+        z-index: 10;
+      }
+      
+      .slider-btn:hover {
+        background: var(--color-orange);
+        color: #FFFFFF;
+      }
+      
+      .slider-btn.prev {
+        left: 20px;
+      }
+      
+      .slider-btn.next {
+        right: 20px;
+      }
+      
+      /* Slider Thumbs under main pic */
+      .slider-thumbs {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        height: 90px;
+        margin-top: 10px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      
+      .slider-thumbs::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .slider-thumb {
+        flex: none;
+        border-radius: 5px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .slider-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      /* Inactive thumbnail: smaller, dark overlay */
+      .slider-thumb:not(.active) {
+        width: 145px;
+        height: 65px;
+        opacity: 0.8;
+        filter: brightness(0.8);
+      }
+      
+      /* Active thumbnail: larger, full colors */
+      .slider-thumb.active {
+        width: 195px;
+        height: 90px;
+        opacity: 1;
+        filter: none;
+        border: 2px solid var(--color-orange);
+      }
+      
+      /* --- INTERACTIVE BOOKING & CALCULATOR --- */
+      .calculator-section {
+        background: #F7F8FA;
+        padding: 100px 0;
+      }
+      
+      .calc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+      
+      @media (max-width: 992px) {
+        .calc-grid {
+          grid-template-columns: 1fr;
+          gap: 50px;
+        }
+      }
+      
+      .calc-title {
+        font-family: var(--font-heading);
+        font-size: 60px;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      
+      .card-options {
+        background: #FFFFFF;
+        border: 1px solid var(--color-orange);
+        border-radius: 12px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      
+      .card-title {
+        font-size: 24px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: -0.04em;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 15px;
+      }
+      
+      /* Date Picker Inputs in Calculator */
+      .calc-dates {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      
+      .calc-date-input {
+        background: #EFF0F2;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 500;
+        outline: none;
+      }
+      
+      .calc-date-input:focus {
+        border-color: var(--color-orange);
+      }
+      
+      /* Guest Selectors Counter */
+      .guest-selector-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      
+      .guest-counter-box {
+        background: #FFFFFF;
+        border: 1px solid var(--color-orange);
+        border-radius: 10px;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .counter-label {
+        font-size: 18px;
+        font-weight: 500;
+      }
+      
+      .counter-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .btn-counter {
+        width: 32px;
+        height: 32px;
+        background: #EFF0F2;
+        color: var(--color-black);
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s;
+      }
+      
+      .btn-counter:hover {
+        background: #D2D4D7;
+      }
+      
+      .counter-value {
+        font-size: 24px;
+        font-weight: 500;
+        min-width: 30px;
+        text-align: center;
+      }
+      
+      /* Switch list for extras */
+      .extras-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .extra-item {
+        background: #FFFFFF;
+        border: 1px solid var(--color-orange);
+        border-radius: 10px;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .extra-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .extra-icon-box {
+        width: 44px;
+        height: 44px;
+        background: #EFF0F2;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .extra-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+      
+      .extra-label {
+        font-size: 18px;
+      }
+      
+      /* Custom iOS-like toggle switch */
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 28px;
+      }
+      
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #E0E1E3;
+        transition: .3s;
+        border-radius: 14px;
+      }
+      
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 22px;
+        width: 22px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .3s;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      input:checked + .slider {
+        background-color: var(--color-orange);
+      }
+      
+      input:checked + .slider:before {
+        transform: translateX(22px);
+      }
+      
+      /* Summary Right Panel */
+      .summary-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      
+      .summary-title {
+        font-size: 24px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: -0.04em;
+      }
+      
+      .summary-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--color-border);
+      }
+      
+      .summary-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      
+      .summary-label {
+        color: var(--color-black);
+      }
+      
+      .summary-value {
+        color: var(--color-black);
+      }
+      
+      .total-price-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-top: 10px;
+      }
+      
+      .total-label {
+        font-family: var(--font-heading);
+        font-size: 60px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.04em;
+      }
+      
+      .total-value {
+        font-family: var(--font-heading);
+        font-size: 60px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.04em;
+        color: var(--color-black);
+      }
+      
+      .booking-times {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-end;
+        font-size: 16px;
+        color: var(--color-gray-text);
+        margin-bottom: 20px;
+      }
+      
+      .booking-time-item {
+        color: var(--color-black);
+      }
+      
+      .booking-time-item span {
+        color: var(--color-gray-text);
+      }
+      
+      .btn-checkout {
+        background: var(--color-orange);
+        color: var(--color-black);
+        font-family: var(--font-heading);
+        font-size: 40px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.04em;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        width: 100%;
+        box-shadow: 0 10px 25px rgba(246, 145, 26, 0.2);
+        transition: background 0.3s, transform 0.2s;
+      }
+      
+      .btn-checkout:hover {
+        background: var(--color-orange-hover);
+        transform: translateY(-2px);
+      }
+      
+      .btn-checkout:active {
+        transform: translateY(0);
+      }
+      
+      /* --- SECTION: PHOTO ACCORDION GALLERY --- */
+      .gallery-section {
+        padding: 100px 0;
+      }
+      
+      .gallery-title {
+        font-family: var(--font-heading);
+        font-size: 50px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      
+      .accordion-gallery {
+        display: flex;
+        height: 490px;
+        width: 100%;
+        gap: 0;
+        overflow: hidden;
+      }
+      
+      .gallery-slide {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        border-right: 1px solid #FFFFFF;
+      }
+      
+      .gallery-slide:last-child {
+        border-right: none;
+      }
+      
+      .gallery-slide.expanded {
+        flex: 5;
+      }
+      
+      .gallery-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.85);
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s;
+      }
+      
+      .gallery-slide:hover img {
+        filter: brightness(1);
+      }
+      
+      .gallery-slide.expanded img {
+        transform: scale(1.05);
+        filter: brightness(1);
+      }
+      
+      /* Overlay Icon in Gallery */
+      .gallery-icon-overlay {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: rgba(252, 253, 255, 0.95);
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.4s, transform 0.4s;
+      }
+      
+      .gallery-slide.expanded .gallery-icon-overlay {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      
+      .gallery-icon {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+      }
+      
+      @media (max-width: 768px) {
+        .accordion-gallery {
+          height: 350px;
+        }
+      }
+      
+      /* --- SECTION: FAQ --- */
+      .faq-section {
+        padding: 80px 0 120px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .faq-title {
+        font-family: var(--font-heading);
+        font-size: 50px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      
+      .faq-item {
+        border-bottom: 1px solid var(--color-border);
+        padding: 30px 0;
+        display: flex;
+        gap: 30px;
+      }
+      
+      .faq-number {
+        font-family: var(--font-heading);
+        font-size: 24px;
+        color: #CCCCCC;
+        width: 40px;
+        flex-shrink: 0;
+      }
+      
+      .faq-content {
+        flex-grow: 1;
+        text-align: center;
+      }
+      
+      .faq-question {
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+      }
+      
+      .faq-answer {
+        font-size: 14px;
+        line-height: 160%;
+        color: var(--color-gray-text);
+      }
+      
+      .faq-btn-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+      }
+      
+      .btn-faq {
+        background: var(--color-orange);
+        color: #FFFFFF;
+        padding: 15px 35px;
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 16px;
+        transition: background 0.3s;
+      }
+      
+      .btn-faq:hover {
+        background: var(--color-orange-hover);
+      }
+      
+      /* --- CUSTOM BLUE FOOTER --- */
+      .footer {
+        background: var(--color-footer-bg);
+        padding: 80px 0 40px;
+        color: var(--color-footer-text);
+      }
+      
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 2fr;
+        gap: 50px;
+        margin-bottom: 60px;
+      }
+      
+      @media (max-width: 992px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      .footer-title {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        color: var(--color-footer-link);
+        margin-bottom: 25px;
+      }
+      
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .footer-links a {
+        font-size: 14px;
+        line-height: 140%;
+        color: var(--color-black);
+      }
+      
+      .footer-links a:hover {
+        color: var(--color-footer-link);
+      }
+      
+      .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .social-links a {
+        font-size: 14px;
+        color: var(--color-black);
+      }
+      
+      .social-links a:hover {
+        color: var(--color-footer-link);
+      }
+      
+      .newsletter-box {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .newsletter-text {
+        font-size: 14px;
+        line-height: 150%;
+      }
+      
+      .email-form-wrapper {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--color-footer-link);
+        background: transparent;
+        border-radius: 5px;
+        padding: 4px;
+      }
+      
+      .email-input {
+        flex-grow: 1;
+        border: none;
+        background: transparent;
+        padding: 12px 15px;
+        font-size: 14px;
+        font-family: inherit;
+        outline: none;
+        color: var(--color-black);
+      }
+      
+      .email-input::placeholder {
+        color: rgba(18, 18, 18, 0.4);
+      }
+      
+      .btn-submit-email {
+        background: #FFFFFF;
+        width: 44px;
+        height: 44px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        color: var(--color-footer-link);
+      }
+      
+      .btn-submit-email svg {
+        transform: rotate(90deg);
+      }
+      
+      .checkbox-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 12px;
+        line-height: 140%;
+        cursor: pointer;
+        user-select: none;
+      }
+      
+      .checkbox-container input {
+        margin-top: 3px;
+      }
+      
+      /* Bottom Footer Bar */
+      .footer-bottom {
+        border-top: 1px solid rgba(18, 18, 18, 0.1);
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: rgba(18, 18, 18, 0.6);
+      }
+      
+      .footer-bottom-links {
+        display: flex;
+        gap: 30px;
+      }
+      
+      @media (max-width: 768px) {
+        .footer-bottom {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+        .footer-bottom-links {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <!-- HERO SECTION -->
+    <header class="hero-section">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="nav-links">
+          <span class="nav-item" data-t="menu">Menu</span>
+          <span class="nav-item" data-t="hotelsAndResorts">Hotels & Resorts</span>
+        </div>
+        
+        <div class="nav-links">
+          <span class="nav-item" data-t="rooms">Rooms</span>
+          <span class="nav-item" data-t="activities">Experiences</span>
+          <span class="nav-item" data-t="dining">Dining</span>
+          <img src="/assets/cases/wooden-room/logo.png" alt="Aliya Logo" class="logo" onerror="this.src='https://ulyanaweb.ru/img/cases/logo.png'" />
+          <span class="nav-item" data-t="ayurvedaAndSpa">Ayurveda & Spa</span>
+          <span class="nav-item" data-t="offers">Special offers</span>
+        </div>
+        
+        <div class="nav-links">
+          <span class="nav-item" data-t="login">Log in</span>
+          <div class="lang-switch">
+            <button class="lang-btn" id="lang-toggle-btn">
+              <span id="active-lang">Eng</span>
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="lang-dropdown" id="lang-dropdown-menu">
+              <button class="lang-option" data-lang="Rus">Rus</button>
+              <button class="lang-option" data-lang="Eng">Eng</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- Big Hero Title -->
+      <div class="hero-title-container">
+        <h1 class="hero-title">
+          <span data-t="wooden">Wooden</span> <span data-t="chalets">Chalets</span>
+        </h1>
+      </div>
+      
+      <!-- Booking Widget Wrapper -->
+      <div class="booking-widget-wrapper">
+        <div class="booking-widget">
+          <!-- Hotel Selection -->
+          <div class="widget-item">
+            <span class="widget-label" data-t="hotel">Hotel</span>
+            <div class="widget-value" id="hotel-selector">
+              <span id="selected-hotel-name">Aliya Resort & Spa</span>
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <!-- Hotel list dropdown -->
+            <div class="hotel-dropdown" id="hotel-dropdown">
+              <div class="hotel-option">Aliya Resort & Spa - Sigiriya</div>
+              <div class="hotel-option">Tea & Experience Factory - Mandaram Nuwara</div>
+              <div class="hotel-option">Wild Glamping Gal Oya</div>
+              <div class="hotel-option">Parangi Weligama Bay</div>
+              <div class="hotel-option">Kithala Resort - Tissa - Yala</div>
+              <div class="hotel-option">Mountbatten Bungalow - Kandy</div>
+              <div class="hotel-option">Ayurvie Sigiriya</div>
+              <div class="hotel-option">Scottish Planter - Nuwara Eliya</div>
+              <div class="hotel-option">Maalu Maalu Resort & Spa - Pasikudah</div>
+            </div>
+          </div>
+          
+          <!-- Room info (Display only) -->
+          <div class="widget-item">
+            <span class="widget-label" data-t="room">Room</span>
+            <div class="widget-value">
+              <span data-t="roomTitle">Wooden Chalets</span>
+            </div>
+          </div>
+          
+          <!-- Check-in Date -->
+          <div class="widget-item">
+            <span class="widget-label" data-t="checkIn">Check-in</span>
+            <input type="date" class="widget-input" id="check-in-widget" value="2025-06-05" />
+          </div>
+          
+          <!-- Check-out Date -->
+          <div class="widget-item">
+            <span class="widget-label" data-t="checkOut">Check-out</span>
+            <input type="date" class="widget-input" id="check-out-widget" value="2025-06-12" />
+          </div>
+          
+          <!-- Book Button -->
+          <button class="btn-widget-book" id="btn-book-hero" data-t="bookNow">Book Now</button>
+        </div>
+      </div>
+    </header>
+    
+    <!-- ABOUT SECTION -->
+    <section class="about-section">
+      <div class="about-text" data-t="aboutText">
+        <strong>HIDDEN</strong> AMIDST THE THICK GROWTH OF <strong>JUNGLE</strong>, OUR WOODEN CHALETS ARE THE PERFECT ABODE FOR THOSE INTERESTED IN <span class="text-orange">SIGIRIYA</span> HOTELS WITH A <strong>TRADITIONAL</strong> TOUCH
+      </div>
+    </section>
+    
+    <!-- DETAILS SECTION -->
+    <section class="details-section">
+      <div class="details-grid">
+        <!-- Room Info Column -->
+        <div class="details-info">
+          <div class="details-top-block">
+            <h2 data-t="roomTitle">Wooden Chalets</h2>
+            <p data-t="roomDesc">A chalet room with a king-size double bed. A single bed can be added. The veranda features sun loungers overlooking the garden, where you can sit and listen to the sounds of nature. The room is built in an eco-friendly way using recycled shipping pallets.</p>
+          </div>
+          
+          <div class="details-bottom-block">
+            <!-- Specs List -->
+            <div class="specs-list">
+              <div class="spec-item">
+                <span class="spec-label" data-t="capacity">Occupancy</span>
+                <span class="spec-value">
+                  <span class="spec-num" data-t="capacityVal">3</span>&nbsp;<span data-t="adults">adults</span>
+                </span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label" data-t="area">Room size</span>
+                <span class="spec-value">
+                  <span class="spec-num" data-t="areaVal">98</span>&nbsp;<span data-t="areaUnit">sq.m</span>
+                </span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label" data-t="beds">Beds</span>
+                <span class="spec-value">
+                  <span class="spec-num" data-t="bedsVal">1</span>&nbsp;<span data-t="bedType">bed queen</span>
+                </span>
+              </div>
+            </div>
+            
+            <!-- Amenities Grid (Frame 1000002500) -->
+            <div class="amenities-grid">
+              <!-- Rain Shower -->
+              <div class="amenity-card">
+                <div class="amenity-icon-box">
+                  <img src="/assets/cases/wooden-room/shower%202.svg" alt="Rain Shower" class="amenity-img-file" onerror="this.src='/assets/cases/wooden-room/shower%202.png'; this.onerror=null;" />
+                </div>
+                <span class="amenity-label" data-t="amShower">Rain Shower</span>
+              </div>
+              <!-- Balcony -->
+              <div class="amenity-card">
+                <div class="amenity-icon-box">
+                  <img src="/assets/cases/wooden-room/Balcony.svg" alt="Balcony" class="amenity-img-file" onerror="this.src='/assets/cases/wooden-room/Balcony.png'; this.onerror=null;" />
+                </div>
+                <span class="amenity-label" data-t="amBalcony">Balcony</span>
+              </div>
+              <!-- Bathtub -->
+              <div class="amenity-card">
+                <div class="amenity-icon-box">
+                  <img src="/assets/cases/wooden-room/Bathube.svg" alt="Bathtub" class="amenity-img-file" onerror="this.src='/assets/cases/wooden-room/Bathube.png'; this.onerror=null;" />
+                </div>
+                <span class="amenity-label" data-t="amTub">Bathtub</span>
+              </div>
+              <!-- Steam Bath -->
+              <div class="amenity-card">
+                <div class="amenity-icon-box">
+                  <img src="/assets/cases/wooden-room/Staem%20buth.svg" alt="Steam bath" class="amenity-img-file" onerror="this.src='/assets/cases/wooden-room/Staem%20buth.png'; this.onerror=null;" />
+                </div>
+                <span class="amenity-label" data-t="amSteam">Steam bath</span>
+              </div>
+              <!-- Garden view -->
+              <div class="amenity-card">
+                <div class="amenity-icon-box">
+                  <img src="/assets/cases/wooden-room/Garden%20view.svg" alt="Garden view" class="amenity-img-file" onerror="this.src='/assets/cases/wooden-room/Garden%20view.png'; this.onerror=null;" />
+                </div>
+                <span class="amenity-label" data-t="amGarden">Garden view</span>
+              </div>
+              <!-- Writing desk -->
+              <div class="amenity-card">
+                <div class="amenity-icon-box">
+                  <img src="/assets/cases/wooden-room/Writing%20desk.svg" alt="Writing desk" class="amenity-img-file" onerror="this.src='/assets/cases/wooden-room/Writing%20desk.png'; this.onerror=null;" />
+                </div>
+                <span class="amenity-label" data-t="amDesk">Writing desk</span>
+              </div>
+              <!-- Wi-Fi -->
+              <div class="amenity-card">
+                <div class="amenity-icon-box">
+                  <img src="/assets/cases/wooden-room/Wi-Fi.svg" alt="Wi-Fi" class="amenity-img-file" onerror="this.src='/assets/cases/wooden-room/Wi-Fi.png'; this.onerror=null;" />
+                </div>
+                <span class="amenity-label" data-t="amWifi">Wi-Fi</span>
+              </div>
+              <!-- AC/Fan -->
+              <div class="amenity-card">
+                <div class="amenity-icon-box">
+                  <img src="/assets/cases/wooden-room/Fan.svg" alt="AC/Fan" class="amenity-img-file" onerror="this.src='/assets/cases/wooden-room/Fan.png'; this.onerror=null;" />
+                </div>
+                <span class="amenity-label" data-t="amAc">AC/Fan</span>
+              </div>
+              <!-- Mini Bar -->
+              <div class="amenity-card">
+                <div class="amenity-icon-box">
+                  <img src="/assets/cases/wooden-room/Mini%20Bar.svg" alt="Mini Bar" class="amenity-img-file" onerror="this.src='/assets/cases/wooden-room/Mini%20Bar.png'; this.onerror=null;" />
+                </div>
+                <span class="amenity-label" data-t="amBar">Mini Bar</span>
+              </div>
+              <!-- Safe in room -->
+              <div class="amenity-card">
+                <div class="amenity-icon-box">
+                  <img src="/assets/cases/wooden-room/Safe%20in%20room.svg" alt="Safe in room" class="amenity-img-file" onerror="this.src='/assets/cases/wooden-room/Safe%20in%20room.png'; this.onerror=null;" />
+                </div>
+                <span class="amenity-label" data-t="amSafe">Safe in room</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Image Slider Column -->
+        <div class="slider-container" id="slider-data-container" data-images={JSON.stringify([slider1.src, slider2.src, slider3.src, slider4.src])}>
+          <div class="slider-main">
+            <Image src={slider1} alt="Chalet View 1" class="slider-img" id="slider-main-img" width={1140} height={660} format="webp" />
+            <button class="slider-btn prev" id="slider-prev-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="slider-btn next" id="slider-next-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Thumbnail Scroller -->
+          <div class="slider-thumbs" id="slider-thumbs-container">
+            <!-- Active thumb -->
+            <div class="slider-thumb active" data-index="0">
+              <Image src={slider1} alt="Thumb 1" width={195} height={90} format="webp" />
+            </div>
+            <div class="slider-thumb" data-index="1">
+              <Image src={slider2} alt="Thumb 2" width={195} height={90} format="webp" />
+            </div>
+            <div class="slider-thumb" data-index="2">
+              <Image src={slider3} alt="Thumb 3" width={195} height={90} format="webp" />
+            </div>
+            <div class="slider-thumb" data-index="3">
+              <Image src={slider4} alt="Thumb 4" width={195} height={90} format="webp" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CALCULATOR & INTERACTIVE SELECTION SECTION -->
+    <section class="calculator-section" id="booking-calculator">
+      <div class="container">
+        <h2 class="calc-title" data-t="chooseRoom">Choose Your Room</h2>
+        
+        <div class="calc-grid">
+          <!-- Left Options Panel -->
+          <div class="card-options">
+            <h3 class="card-title" data-t="selectOptions">Select Options</h3>
+            
+            <!-- Stay Dates -->
+            <div class="calc-dates">
+              <div class="widget-item">
+                <span class="widget-label" data-t="checkIn">Check-in</span>
+                <input type="date" class="calc-date-input" id="check-in-calc" value="2025-06-05" />
+              </div>
+              <div class="widget-item">
+                <span class="widget-label" data-t="checkOut">Check-out</span>
+                <input type="date" class="calc-date-input" id="check-out-calc" value="2025-06-12" />
+              </div>
+            </div>
+            
+            <!-- Guest Counters -->
+            <div class="guest-selector-container">
+              <!-- Adults Counter -->
+              <div class="guest-counter-box">
+                <span class="counter-label" data-t="adultsFull">Adults</span>
+                <div class="counter-controls">
+                  <button class="btn-counter" id="btn-adults-minus">—</button>
+                  <span class="counter-value" id="adult-count">2</span>
+                  <button class="btn-counter" id="btn-adults-plus">+</button>
+                </div>
+              </div>
+              
+              <!-- Children Counter -->
+              <div class="guest-counter-box">
+                <span class="counter-label" data-t="childrenFull">Children</span>
+                <div class="counter-controls">
+                  <button class="btn-counter" id="btn-kids-minus">—</button>
+                  <span class="counter-value" id="kids-count">1</span>
+                  <button class="btn-counter" id="btn-kids-plus">+</button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Extras Switch list -->
+            <div class="extras-list">
+              <!-- Breakfast Extra -->
+              <div class="extra-item">
+                <div class="extra-info">
+                  <div class="extra-icon-box">
+                    <span style="font-size: 20px;">🍳</span>
+                  </div>
+                  <span class="extra-label" data-t="bfast">Breakfast included</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="extra-breakfast" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              
+              <!-- Half board Extra -->
+              <div class="extra-item">
+                <div class="extra-info">
+                  <div class="extra-icon-box">
+                    <span style="font-size: 20px;">🍽️</span>
+                  </div>
+                  <span class="extra-label" data-t="hb">Half board</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="extra-hb" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              
+              <!-- Airport Transfer Extra -->
+              <div class="extra-item">
+                <div class="extra-info">
+                  <div class="extra-icon-box">
+                    <span style="font-size: 20px;">🚙</span>
+                  </div>
+                  <span class="extra-label" data-t="transfer">Airport transfer</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="extra-airport" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              
+              <!-- Late check out Extra -->
+              <div class="extra-item">
+                <div class="extra-info">
+                  <div class="extra-icon-box">
+                    <span style="font-size: 20px;">🕒</span>
+                  </div>
+                  <span class="extra-label" data-t="lateOut">Late check-out</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="extra-late-checkout" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              
+              <!-- Baby Cot Extra -->
+              <div class="extra-item">
+                <div class="extra-info">
+                  <div class="extra-icon-box">
+                    <span style="font-size: 20px;">👶</span>
+                  </div>
+                  <span class="extra-label" data-t="crib">Baby cot</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="extra-crib" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Confirmation & Calculation Panel -->
+          <div class="summary-panel">
+            <h3 class="summary-title" data-t="confirm">Confirm Your Selection</h3>
+            
+            <div class="summary-list">
+              <!-- Check in row -->
+              <div class="summary-item">
+                <span class="summary-label" data-t="checkIn">Check-in</span>
+                <span class="summary-value" id="summary-check-in">2025 June 05 <span>after 2:00 PM</span></span>
+              </div>
+              <!-- Check out row -->
+              <div class="summary-item">
+                <span class="summary-label" data-t="checkOut">Check-out</span>
+                <span class="summary-value" id="summary-check-out">2025 June 12 <span>before 12:00 PM</span></span>
+              </div>
+              <!-- Children count -->
+              <div class="summary-item">
+                <span class="summary-label" data-t="childrenFull">Children</span>
+                <span class="summary-value" id="summary-kids">1</span>
+              </div>
+              <!-- Adults count -->
+              <div class="summary-item">
+                <span class="summary-label" data-t="adultsFull">Adults</span>
+                <span class="summary-value" id="summary-adults">2</span>
+              </div>
+              <!-- Room count -->
+              <div class="summary-item">
+                <span class="summary-label" data-t="room">Room</span>
+                <span class="summary-value">1</span>
+              </div>
+              <!-- Meal Plan selection -->
+              <div class="summary-item">
+                <span class="summary-label" id="summary-meals-label">Half board</span>
+                <span class="summary-value" id="summary-meals-included" data-t="included">included</span>
+              </div>
+              <!-- Transfer selection -->
+              <div class="summary-item">
+                <span class="summary-label" data-t="transfer">Airport transfer</span>
+                <span class="summary-value" id="summary-transfer-included" data-t="included">included</span>
+              </div>
+              <!-- Stay calculation row -->
+              <div class="summary-item">
+                <span class="summary-label" id="summary-nights-label">Per 7 nights</span>
+                <span class="summary-value" id="summary-nights-calc">$150 x 7 = $1050</span>
+              </div>
+              <!-- Discount row -->
+              <div class="summary-item">
+                <span class="summary-label" data-t="discount">Discount</span>
+                <span class="summary-value" id="summary-discount">10% (-$105)</span>
+              </div>
+            </div>
+            
+            <!-- Dates info bar -->
+            <div class="booking-times">
+              <div class="booking-time-item"><span data-t="checkIn">Arrival</span>: <strong id="summary-arrival-date-bottom">05 June 2025</strong></div>
+              <div class="booking-time-item"><span data-t="checkOut">Departure</span>: <strong id="summary-departure-date-bottom">12 June 2025</strong></div>
+            </div>
+            
+            <!-- Total price & Book Button -->
+            <div>
+              <div class="total-price-box">
+                <span class="total-label" data-t="total">Total</span>
+                <span class="total-value" id="calc-total-val">$ 945</span>
+              </div>
+              <button class="btn-checkout" id="btn-final-checkout" data-t="bookNow">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ACCORDION GALLERY SECTION -->
+    <section class="gallery-section">
+      <h2 class="gallery-title" data-t="gallery">Gallery</h2>
+      
+      <div class="accordion-gallery">
+        <div class="gallery-slide expanded" data-index="0">
+          <img src="https://ulyanaweb.ru/img/cases/aliya-wooden.png" alt="Gallery View 1" />
+          <div class="gallery-icon-overlay">
+            <span style="font-size:30px;">👁️</span>
+          </div>
+        </div>
+        <div class="gallery-slide" data-index="1">
+          <img src="https://ulyanaweb.ru/img/cases/cooking-wooden.webp" alt="Gallery View 2" />
+          <div class="gallery-icon-overlay">
+            <span style="font-size:30px;">🍴</span>
+          </div>
+        </div>
+        <div class="gallery-slide" data-index="2">
+          <img src="https://ulyanaweb.ru/img/cases/food-wooden.webp" alt="Gallery View 3" />
+          <div class="gallery-icon-overlay">
+            <span style="font-size:30px;">🍕</span>
+          </div>
+        </div>
+        <div class="gallery-slide" data-index="3">
+          <img src="https://ulyanaweb.ru/img/cases/night-wooden.webp" alt="Gallery View 4" />
+          <div class="gallery-icon-overlay">
+            <span style="font-size:30px;">🌙</span>
+          </div>
+        </div>
+        <div class="gallery-slide" data-index="4">
+          <img src="https://ulyanaweb.ru/img/cases/play-wooden.webp" alt="Gallery View 5" />
+          <div class="gallery-icon-overlay">
+            <span style="font-size:30px;">🏃</span>
+          </div>
+        </div>
+        <div class="gallery-slide" data-index="5">
+          <img src="https://ulyanaweb.ru/img/cases/rest-wooden.webp" alt="Gallery View 6" />
+          <div class="gallery-icon-overlay">
+            <span style="font-size:30px;">🏠</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ SECTION -->
+    <section class="faq-section container">
+      <h2 class="faq-title" data-t="faqTitle">Frequently Asked Questions</h2>
+      
+      <div class="faq-list">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <span class="faq-number">01</span>
+          <div class="faq-content">
+            <h4 class="faq-question" data-t="faq1q">How to get to the hotel from the airport?</h4>
+            <p class="faq-answer" data-t="faq1a">We arrange airport transfers, please contact us for more information.</p>
+          </div>
+          <span class="faq-number" style="text-align: right;">01</span>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <span class="faq-number">02</span>
+          <div class="faq-content">
+            <h4 class="faq-question" data-t="faq2q">How many restaurants and bars do you have?</h4>
+            <p class="faq-answer" data-t="faq2a">We have 3 restaurants, including the main restaurant, and a bar. Special location dining is also available upon request.</p>
+          </div>
+          <span class="faq-number" style="text-align: right;">02</span>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <span class="faq-number">03</span>
+          <div class="faq-content">
+            <h4 class="faq-question" data-t="faq3q">What facilities are available for children?</h4>
+            <p class="faq-answer" data-t="faq3a">The hotel features a kids' pool, an indoor play area, and many other activities for children.</p>
+          </div>
+          <span class="faq-number" style="text-align: right;">03</span>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <span class="faq-number">04</span>
+          <div class="faq-content">
+            <h4 class="faq-question" data-t="faq4q">Do you provide accommodation for drivers?</h4>
+            <p class="faq-answer" data-t="faq4a">Yes, we provide accommodation for drivers.</p>
+          </div>
+          <span class="faq-number" style="text-align: right;">04</span>
+        </div>
+      </div>
+      
+      <div class="faq-btn-container">
+        <button class="btn-faq" data-t="askMgr">Ask the manager a question</button>
+      </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-grid">
+        <!-- Hotels and Resorts Column -->
+        <div>
+          <h5 class="footer-title" data-t="hotelsAndResorts">Hotels & Resorts</h5>
+          <ul class="footer-links">
+            <li><a href="#">Tea & Experience Factory - Mandaram Nuwara</a></li>
+            <li><a href="#">Wild Glamping Gal Oya</a></li>
+            <li><a href="#">Aliya Resorts & Spa - Sigiriya</a></li>
+            <li><a href="#">Parangi Weligama Bay</a></li>
+            <li><a href="#">Kithala Resort - Tissa - Yala</a></li>
+            <li><a href="#">Mountbatten Bungalow - Kandy</a></li>
+            <li><a href="#">Ayurvie Sigiriya</a></li>
+            <li><a href="#">Scottish Planter - Nuwara Eliya</a></li>
+            <li><a href="#">Maalu Maalu Resort & Spa - Pasikudah</a></li>
+          </ul>
+        </div>
+        
+        <!-- Menu Column -->
+        <div>
+          <h5 class="footer-title" data-t="menu">Menu</h5>
+          <ul class="footer-links">
+            <li><a href="#" data-t="home">Home</a></li>
+            <li><a href="#" data-t="weddings">Weddings & Events</a></li>
+            <li><a href="#" data-t="offers">Special offers</a></li>
+            <li><a href="#" data-t="about">About Us</a></li>
+            <li><a href="#" data-t="awards">Awards</a></li>
+            <li><a href="#" data-t="team">Team</a></li>
+            <li><a href="#" data-t="account">Account</a></li>
+            <li><a href="#" data-t="contacts">Contact Us</a></li>
+            <li><a href="#" data-t="gallery">Gallery</a></li>
+          </ul>
+        </div>
+        
+        <!-- Social Column -->
+        <div>
+          <h5 class="footer-title">Social</h5>
+          <ul class="footer-links">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Youtube</a></li>
+          </ul>
+        </div>
+        
+        <!-- Newsletter Signup -->
+        <div class="newsletter-box">
+          <h5 class="footer-title" data-t="subscribe" style="color:var(--color-black);">Join our newsletter!</h5>
+          
+          <div class="email-form-wrapper">
+            <input type="email" placeholder="Enter your email" class="email-input" id="newsletter-email" data-t-placeholder="emailPlaceholder" />
+            <button class="btn-submit-email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+          
+          <label class="checkbox-container">
+            <input type="checkbox" id="newsletter-agree" checked />
+            <span data-t="readAgree">I’ve read and I agree with Terms of Service & Privacy Policy</span>
+          </label>
+          
+          <p class="newsletter-text" data-t="footerDesc">
+            We are committed to setting up distinctive themes, to bring the most wonderful stories filled with authentic Sri Lankan experiences to life.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="container footer-bottom">
+        <div>© 2026 Aliya Resort & Spa.</div>
+        <div class="footer-bottom-links">
+          <a href="#" data-t="privacy">Privacy Policy</a>
+          <a href="#" data-t="terms">Terms & Conditions</a>
+          <a href="#" data-t="sitemap">Sitemap</a>
+          <a href="#" data-t="gdpr">GDPR Compliance</a>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script is:inline>
+      /* --- TRANSLATIONS OBJECT --- */
+      const translations = {
+        Rus: {
+          menu: "Меню",
+          hotelsAndResorts: "Отели и Курорты",
+          rooms: "Номера",
+          activities: "Развлечения",
+          dining: "Рестораны",
+          ayurvedaAndSpa: "Аюрведа и Спа",
+          offers: "Спецпредложения",
+          login: "Войти",
+          wooden: "Деревянные",
+          chalets: "Шале",
+          hotel: "Отель",
+          room: "Номер",
+          checkIn: "Заезд",
+          checkOut: "Выезд",
+          adults: "Взр",
+          children: "Дет",
+          bookNow: "Забронировать",
+          roomTitle: "Деревянные Шале",
+          roomDesc: "Номер шале с двуспальной кроватью размера 'king-size'. Возможна установка односпальной cпальной кровати. На веранде есть шезлонги с видом на сад, где можно посидеть и послушать звуки природы. Номер построен экологическим способом с использованием переработанных транспортных поддонов.",
+          capacity: "Размещение",
+          capacityVal: "3",
+          adults: "взрослых",
+          area: "Размер номера",
+          areaVal: "98",
+          areaUnit: "кв.м",
+          beds: "Кровати",
+          bedsVal: "1",
+          bedType: "кровать queen",
+          amShower: "Тропический душ",
+          amBalcony: "Балкон",
+          amTub: "Ванна",
+          amSteam: "Паровая баня",
+          amGarden: "Вид на сад",
+          amDesk: "Письменный стол",
+          amWifi: "Wi-Fi",
+          amAc: "AC/Fan",
+          amBar: "Мини-бар",
+          amSafe: "Сейф в номере",
+          aboutText: '<strong>Скрытые</strong> среди густых зарослей <strong>джунглей</strong>, наши деревянные шале — идеальное пристанище для тех, кого интересуют отели в <span class="text-orange">Сигирии</span> с <strong>традиционным</strong> колоритом',
+          chooseRoom: "Выберите Ваш Номер",
+          selectOptions: "Выберите Опции",
+          adultsFull: "Взрослые",
+          childrenFull: "Дети",
+          bfast: "Завтрак включен",
+          hb: "Завтрак и ужин включены",
+          transfer: "Трансфер из аэропорта",
+          lateOut: "Поздний выезд",
+          crib: "Детская кроватка",
+          confirm: "Подтвердите Ваш Выбор",
+          included: "включено",
+          notIncluded: "не включено",
+          discount: "Скидка",
+          total: "Итого",
+          gallery: "Галерея",
+          faqTitle: "Часто задаваемые вопросы",
+          faq1q: "Как добраться до отеля из аэропорта?",
+          faq1a: "Мы организуем трансфер из аэропорта, пожалуйста, свяжитесь с нами для получения дополнительной информации.",
+          faq2q: "Сколько у вас ресторанов и баров?",
+          faq2a: "У нас есть 3 ресторана, включая главный ресторан, и бар. По запросу также возможна организация ужина в особых локациях.",
+          faq3q: "Какие удобства есть для детей?",
+          faq3a: "На территории отеля есть детский бассейн, крытая игровая площадка и множество других развлечений для детей.",
+          faq4q: "Предоставляете ли вы жилье для водителей?",
+          faq4a: "Да, мы предоставляем жилье для водителей.",
+          askMgr: "Задать вопрос менеджеру",
+          home: "Главная",
+          weddings: "Свадьбы и Мероприятия",
+          about: "О нас",
+          awards: "Награды",
+          team: "Команда",
+          account: "Аккаунт",
+          contacts: "Контакты",
+          subscribe: "Подпишитесь на рассылку!",
+          emailPlaceholder: "Введите эл. почту",
+          readAgree: "Я прочитал(а) и согласен(на) с Условиями использования и Политикой конфиденциальности",
+          footerDesc: "Мы стремимся создавать уникальные концепции, чтобы воплотить в жизнь самые удивительные истории, наполненные аутентичным опытом Шри-Ланки.",
+          privacy: "Политика конфиденциальности",
+          terms: "Условия и положения",
+          sitemap: "Карта сайта",
+          gdpr: "Соответствие GDPR"
+        },
+        Eng: {
+          menu: "Menu",
+          hotelsAndResorts: "Hotels & Resorts",
+          rooms: "Rooms",
+          activities: "Experiences",
+          dining: "Dining",
+          ayurvedaAndSpa: "Ayurveda & Spa",
+          offers: "Special offers",
+          login: "Log in",
+          wooden: "Wooden",
+          chalets: "Chalets",
+          hotel: "Hotel",
+          room: "Room",
+          checkIn: "Check-in",
+          checkOut: "Check-out",
+          adults: "Adults",
+          children: "Children",
+          bookNow: "Book Now",
+          roomTitle: "Wooden Chalets",
+          roomDesc: "A chalet room with a king-size double bed. A single bed can be added. The veranda features sun loungers overlooking the garden, where you can sit and listen to the sounds of nature. The room is built in an eco-friendly way using recycled shipping pallets.",
+          capacity: "Occupancy",
+          capacityVal: "3",
+          adults: "adults",
+          area: "Room size",
+          areaVal: "98",
+          areaUnit: "sq.m",
+          beds: "Beds",
+          bedsVal: "1",
+          bedType: "bed queen",
+          amShower: "Rain Shower",
+          amBalcony: "Balcony",
+          amTub: "Bathtub",
+          amSteam: "Steam bath",
+          amGarden: "Garden view",
+          amDesk: "Writing desk",
+          amWifi: "Wi-Fi",
+          amAc: "AC/Fan",
+          amBar: "Mini Bar",
+          amSafe: "Safe in room",
+          aboutText: '<strong>HIDDEN</strong> AMIDST THE THICK GROWTH OF <strong>JUNGLE</strong>, OUR WOODEN CHALETS ARE THE PERFECT ABODE FOR THOSE INTERESTED IN <span class="text-orange">SIGIRIYA</span> HOTELS WITH A <strong>TRADITIONAL</strong> TOUCH',
+          chooseRoom: "Choose Your Room",
+          selectOptions: "Select Options",
+          adultsFull: "Adults",
+          childrenFull: "Children",
+          bfast: "Breakfast included",
+          hb: "Half board",
+          transfer: "Airport transfer",
+          lateOut: "Late check-out",
+          crib: "Baby cot",
+          confirm: "Confirm Your Selection",
+          included: "included",
+          notIncluded: "not included",
+          discount: "Discount",
+          total: "Total",
+          gallery: "Gallery",
+          faqTitle: "Frequently Asked Questions",
+          faq1q: "How to get to the hotel from the airport?",
+          faq1a: "We arrange airport transfers, please contact us for more information.",
+          faq2q: "How many restaurants and bars do you have?",
+          faq2a: "We have 3 restaurants, including the main restaurant, and a bar. Special location dining is also available upon request.",
+          faq3q: "What facilities are available for children?",
+          faq3a: "The hotel features a kids' pool, an indoor play area, and many other activities for children.",
+          faq4q: "Do you provide accommodation for drivers?",
+          faq4a: "Yes, we provide accommodation for drivers.",
+          askMgr: "Ask the manager a question",
+          home: "Home",
+          weddings: "Weddings & Events",
+          about: "About Us",
+          awards: "Awards",
+          team: "Team",
+          account: "Account",
+          contacts: "Contact Us",
+          subscribe: "Join our newsletter!",
+          emailPlaceholder: "Enter your email",
+          readAgree: "I’ve read and I agree with Terms of Service & Privacy Policy",
+          footerDesc: "We are committed to setting up distinctive themes, to bring the most wonderful stories filled with authentic Sri Lankan experiences to life.",
+          privacy: "Privacy Policy",
+          terms: "Terms & Conditions",
+          sitemap: "Sitemap",
+          gdpr: "GDPR Compliance"
+        }
+      };
+
+      let currentLang = 'Eng';
+
+      /* --- INITIALIZE TRANSLATION FUNCTION --- */
+      function applyTranslations(lang) {
+        currentLang = lang;
+        document.getElementById('active-lang').textContent = lang;
+        
+        // Translate elements with data-t
+        document.querySelectorAll('[data-t]').forEach(el => {
+          const key = el.getAttribute('data-t');
+          if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+          }
+        });
+        
+        // Translate placeholders
+        document.querySelectorAll('[data-t-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-t-placeholder');
+          if (translations[lang] && translations[lang][key]) {
+            el.setAttribute('placeholder', translations[lang][key]);
+          }
+        });
+
+        // Recalculate and update calculated summaries in the correct language
+        updateCalculator();
+      }
+
+      /* --- NAVBAR LANGUAGE DROPDOWN --- */
+      const langBtn = document.getElementById('lang-toggle-btn');
+      const langDropdown = document.getElementById('lang-dropdown-menu');
+
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('active');
+      });
+
+      document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+          const selected = opt.getAttribute('data-lang');
+          applyTranslations(selected);
+          langDropdown.classList.remove('active');
+        });
+      });
+
+      document.addEventListener('click', () => {
+        langDropdown.classList.remove('active');
+      });
+
+      /* --- HOTEL SELECTOR DROPDOWN --- */
+      const hotelSelector = document.getElementById('hotel-selector');
+      const hotelDropdown = document.getElementById('hotel-dropdown');
+      const selectedHotelName = document.getElementById('selected-hotel-name');
+
+      hotelSelector.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hotelDropdown.classList.toggle('active');
+      });
+
+      document.querySelectorAll('.hotel-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+          selectedHotelName.textContent = opt.textContent;
+          hotelDropdown.classList.remove('active');
+        });
+      });
+
+      document.addEventListener('click', () => {
+        hotelDropdown.classList.remove('active');
+      });
+
+      /* --- SLIDER LOGIC --- */
+      const sliderDataEl = document.getElementById('slider-data-container');
+      const sliderImages = JSON.parse(sliderDataEl.getAttribute('data-images'));
+      
+      let activeIndex = 0;
+      const mainImg = document.getElementById('slider-main-img');
+      const thumbs = document.querySelectorAll('.slider-thumb');
+      
+      function updateSlider(index) {
+        activeIndex = index;
+        mainImg.src = sliderImages[index];
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumbs[index].classList.add('active');
+      }
+
+      document.getElementById('slider-prev-btn').addEventListener('click', () => {
+        let newIndex = activeIndex === 0 ? sliderImages.length - 1 : activeIndex - 1;
+        updateSlider(newIndex);
+      });
+
+      document.getElementById('slider-next-btn').addEventListener('click', () => {
+        let newIndex = activeIndex === sliderImages.length - 1 ? 0 : activeIndex + 1;
+        updateSlider(newIndex);
+      });
+
+      thumbs.forEach((thumb, idx) => {
+        thumb.addEventListener('click', () => {
+          updateSlider(idx);
+        });
+      });
+
+      /* --- GALLERY ACCORDION LOGIC --- */
+      const slides = document.querySelectorAll('.gallery-slide');
+      slides.forEach(slide => {
+        slide.addEventListener('mouseenter', () => {
+          slides.forEach(s => s.classList.remove('expanded'));
+          slide.classList.add('expanded');
+        });
+      });
+
+      /* --- CALCULATOR INTERACTIVE LOGIC --- */
+      // State
+      let adults = 2;
+      let kids = 1;
+      let checkInDate = "2025-06-05";
+      let checkOutDate = "2025-06-12";
+      
+      // Selectors
+      const checkInWidget = document.getElementById('check-in-widget');
+      const checkOutWidget = document.getElementById('check-out-widget');
+      const checkInCalc = document.getElementById('check-in-calc');
+      const checkOutCalc = document.getElementById('check-out-calc');
+      
+      const adultCountEl = document.getElementById('adult-count');
+      const kidsCountEl = document.getElementById('kids-count');
+      
+      const extraBreakfast = document.getElementById('extra-breakfast');
+      const extraHb = document.getElementById('extra-hb');
+      const extraAirport = document.getElementById('extra-airport');
+      const extraLateCheckout = document.getElementById('extra-late-checkout');
+      const extraCrib = document.getElementById('extra-crib');
+      
+      // Event Sync
+      function syncDates(type, val) {
+        if (type === 'checkin') {
+          checkInDate = val;
+          checkInWidget.value = val;
+          checkInCalc.value = val;
+        } else {
+          checkOutDate = val;
+          checkOutWidget.value = val;
+          checkOutCalc.value = val;
+        }
+        updateCalculator();
+      }
+
+      checkInWidget.addEventListener('change', (e) => syncDates('checkin', e.target.value));
+      checkInCalc.addEventListener('change', (e) => syncDates('checkin', e.target.value));
+      checkOutWidget.addEventListener('change', (e) => syncDates('checkout', e.target.value));
+      checkOutCalc.addEventListener('change', (e) => syncDates('checkout', e.target.value));
+
+      // Mutual exclusive meals
+      extraBreakfast.addEventListener('change', () => {
+        if (extraBreakfast.checked) extraHb.checked = false;
+        updateCalculator();
+      });
+      extraHb.addEventListener('change', () => {
+        if (extraHb.checked) extraBreakfast.checked = false;
+        updateCalculator();
+      });
+      
+      extraAirport.addEventListener('change', updateCalculator);
+      extraLateCheckout.addEventListener('change', updateCalculator);
+      extraCrib.addEventListener('change', updateCalculator);
+
+      // Counters
+      document.getElementById('btn-adults-plus').addEventListener('click', () => {
+        adults++;
+        adultCountEl.textContent = adults;
+        updateCalculator();
+      });
+      document.getElementById('btn-adults-minus').addEventListener('click', () => {
+        if (adults > 1) {
+          adults--;
+          adultCountEl.textContent = adults;
+          updateCalculator();
+        }
+      });
+      document.getElementById('btn-kids-plus').addEventListener('click', () => {
+        kids++;
+        kidsCountEl.textContent = kids;
+        updateCalculator();
+      });
+      document.getElementById('btn-kids-minus').addEventListener('click', () => {
+        if (kids > 0) {
+          kids--;
+          kidsCountEl.textContent = kids;
+          updateCalculator();
+        }
+      });
+
+      // Format Date in local language
+      function formatDateLocal(dateStr, lang) {
+        const d = new Date(dateStr);
+        if (isNaN(d.getTime())) return dateStr;
+        
+        const monthsRu = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+        const monthsEn = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        
+        if (lang === 'Rus') {
+          return `${d.getDate()} ${monthsRu[d.getMonth()]} ${d.getFullYear()}`;
+        }
+        return `${d.getFullYear()} ${monthsEn[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')}`;
+      }
+
+      function formatDateShort(dateStr, lang) {
+        const d = new Date(dateStr);
+        if (isNaN(d.getTime())) return dateStr;
+        
+        const options = lang === 'Rus' 
+          ? { day: 'numeric', month: 'short' } 
+          : { month: 'short', day: 'numeric' };
+          
+        return d.toLocaleDateString(lang === 'Rus' ? 'ru-RU' : 'en-US', options);
+      }
+
+      // Calculation Core
+      function updateCalculator() {
+        // Calculate Nights
+        const d1 = new Date(checkInDate);
+        const d2 = new Date(checkOutDate);
+        let nights = 7;
+        if (!isNaN(d1.getTime()) && !isNaN(d2.getTime())) {
+          const diff = d2.getTime() - d1.getTime();
+          nights = Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+        }
+
+        // Nightly rate base
+        let baseRate = 150;
+        // Extra guests
+        if (adults > 2) baseRate += (adults - 2) * 40;
+        if (kids > 0) baseRate += kids * 20;
+
+        const totalGuests = adults + kids;
+        
+        // Meal plans
+        let mealRate = 0;
+        let mealLabel = currentLang === 'Rus' ? "Без питания" : "No meals";
+        if (extraBreakfast.checked) {
+          mealRate = totalGuests * 15;
+          mealLabel = currentLang === 'Rus' ? "Завтрак" : "Breakfast";
+        } else if (extraHb.checked) {
+          mealRate = totalGuests * 35;
+          mealLabel = currentLang === 'Rus' ? "Завтрак и ужин" : "Half board";
+        }
+        
+        // Room Cost for nights
+        const roomNightsCost = (baseRate + mealRate) * nights;
+
+        // Flat fee extras
+        let flatExtras = 0;
+        if (extraAirport.checked) flatExtras += 50;
+        if (extraLateCheckout.checked) flatExtras += 40;
+        if (extraCrib.checked) flatExtras += 15;
+
+        // Totals
+        const subtotal = roomNightsCost + flatExtras;
+        const discount = subtotal * 0.1;
+        const grandTotal = subtotal - discount;
+
+        // Update Right panel displays
+        document.getElementById('summary-check-in').innerHTML = `${formatDateLocal(checkInDate, currentLang)} <span style="font-size:12px;color:var(--color-gray-text);">${currentLang === 'Rus' ? "после 14:00" : "after 2:00 PM"}</span>`;
+        document.getElementById('summary-check-out').innerHTML = `${formatDateLocal(checkOutDate, currentLang)} <span style="font-size:12px;color:var(--color-gray-text);">${currentLang === 'Rus' ? "до 12:00" : "before 12:00 PM"}</span>`;
+        
+        document.getElementById('summary-kids').textContent = kids;
+        document.getElementById('summary-adults').textContent = adults;
+        
+        // Meals and Transfer
+        document.getElementById('summary-meals-label').textContent = mealLabel;
+        const mealsIncl = document.getElementById('summary-meals-included');
+        if (extraBreakfast.checked || extraHb.checked) {
+          mealsIncl.textContent = translations[currentLang].included;
+          mealsIncl.style.color = "var(--color-black)";
+        } else {
+          mealsIncl.textContent = currentLang === 'Rus' ? "не включено" : "not included";
+          mealsIncl.style.color = "var(--color-gray-text)";
+        }
+
+        const transIncl = document.getElementById('summary-transfer-included');
+        if (extraAirport.checked) {
+          transIncl.textContent = translations[currentLang].included;
+          transIncl.style.color = "var(--color-black)";
+        } else {
+          transIncl.textContent = currentLang === 'Rus' ? "не включено" : "not included";
+          transIncl.style.color = "var(--color-gray-text)";
+        }
+
+        // Nights calculation row
+        const nightsLabel = currentLang === 'Rus' ? `За ${nights} ночей` : `Per ${nights} nights`;
+        document.getElementById('summary-nights-label').textContent = nightsLabel;
+        document.getElementById('summary-nights-calc').textContent = `$${(baseRate + mealRate)} x ${nights} = $${roomNightsCost}`;
+
+        // Discount
+        document.getElementById('summary-discount').textContent = `10% (-$${discount.toFixed(0)})`;
+
+        // Total
+        document.getElementById('calc-total-val').textContent = `$ ${grandTotal.toFixed(0)}`;
+
+        // Dates Bottom info
+        document.getElementById('summary-arrival-date-bottom').textContent = formatDateLocal(checkInDate, currentLang);
+        document.getElementById('summary-departure-date-bottom').textContent = formatDateLocal(checkOutDate, currentLang);
+      }
+
+      // Initial Call
+      updateCalculator();
+    </script>
+  </body>
+</html>
